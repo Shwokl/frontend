@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'features/authentication/login/login_page.dart';
+import 'features/authentication/login/view/login_page.dart';
+import 'features/authentication/register/view/register_page.dart';
 import 'features/theming/barrell.dart';
 
 class ShwoklApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class ShwoklApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeBloc>(
-          create: (context) => ThemeBloc(AppTheme.Dark),
+          create: (context) => ThemeBloc(AppTheme.Light),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
@@ -29,6 +30,7 @@ class ShwoklApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(),
       },
     );
   }
