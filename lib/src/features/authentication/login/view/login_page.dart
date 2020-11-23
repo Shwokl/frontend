@@ -11,9 +11,10 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Stack(
         children: [
-          BackgroundPattern(opacity: 0.35),
+          BackgroundPattern(opacity: 0.4),
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(
