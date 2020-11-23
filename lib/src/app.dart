@@ -25,7 +25,7 @@ class ShwoklApp extends StatelessWidget {
 
   Widget _buildWithTheme(BuildContext context, ThemeState state) {
     return MaterialApp(
-      title: 'Flukabo',
+      title: 'Shwokl',
       theme: state.themeData,
       initialRoute: '/login',
       routes: {
