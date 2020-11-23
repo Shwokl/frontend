@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class BackgroundPattern extends StatelessWidget {
   final double opacity;
-  const BackgroundPattern({this.opacity});
+  const BackgroundPattern({@required this.opacity});
 
   @override
   Widget build(BuildContext context) {
