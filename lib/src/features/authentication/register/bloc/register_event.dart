@@ -1,6 +1,6 @@
 part of 'register_bloc.dart';
 
-abstract class RegisterEvent extends Equatable {
+class RegisterEvent extends Equatable {
   final String name;
   final String username;
   final String email;
