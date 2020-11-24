@@ -13,14 +13,19 @@ class BackgroundPattern extends StatelessWidget {
       _pattern += "light.png";
     }
 
-    return Opacity(
-      opacity: opacity,
-      child: Image.asset(
-        _pattern,
-        fit: BoxFit.cover,
-        height: double.infinity,
-        width: double.infinity,
-        alignment: Alignment.center,
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: Colors.black,
+      child: Opacity(
+        opacity: opacity,
+        child: Image.asset(
+          _pattern,
+          fit: BoxFit.cover,
+          height: double.infinity,
+          width: double.infinity,
+          alignment: Alignment.center,
+        ),
       ),
     );
   }
