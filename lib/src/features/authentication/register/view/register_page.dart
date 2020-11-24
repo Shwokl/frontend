@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:frontend/src/features/_generics_/code/snackbar.dart';
-import 'package:frontend/src/features/_generics_/widgets/loading_indicator.dart';
+import 'package:frontend/src/generic_widgets/background_pattern.dart';
+import 'package:frontend/src/generic_widgets/loading_indicator.dart';
 
 import '../bloc/register_bloc.dart';
 import 'widgets/register_dialog.dart';
@@ -13,7 +15,10 @@ class RegisterPage extends StatelessWidget {
     if (state is RegisterLoading) {
       return const LoadingIndicator();
     } else if (state is RegisterSuccess) {
-      Navigator.pushReplacementNamed(context, "/login");
+      Future.delayed(Duration.zero).then(
+        (value) => Navigator.pushReplacementNamed(context, "/login"),
+      );
+      return const BackgroundPattern(opacity: 0.4);
     } else if (state is RegisterFail || state is RegisterInitial) {
       return const RegisterDialog();
     }

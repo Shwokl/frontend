@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:frontend/src/features/_generics_/code/snackbar.dart';
-import 'package:frontend/src/features/_generics_/widgets/loading_indicator.dart';
+import 'package:frontend/src/generic_widgets/background_pattern.dart';
+import 'package:frontend/src/generic_widgets/loading_indicator.dart';
 
 import '../bloc/login_bloc.dart';
 import 'widgets/login_dialog.dart';
@@ -13,11 +15,13 @@ class LoginPage extends StatelessWidget {
     if (state is LoginLoading) {
       return const LoadingIndicator();
     } else if (state is LoginSuccess) {
-      Navigator.pushReplacementNamed(context, "/home");
-    } else if (state is LoginFail || state is LoginInitial) {
+      Future.delayed(Duration.zero).then(
+        (value) => Navigator.pushReplacementNamed(context, "/home"),
+      );
+      return BackgroundPattern(opacity: 0.4);
+    } else {
       return const LoginDialog();
     }
-    return const SizedBox(width: 1.0, height: 1.0);
   }
 
   void _listener(BuildContext context, LoginState state) {

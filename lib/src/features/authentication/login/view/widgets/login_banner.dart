@@ -5,8 +5,11 @@ class LoginBanner extends StatelessWidget {
   final int flex;
   const LoginBanner({@required this.flex});
 
-  void _onSignupPress(BuildContext context) =>
-      Navigator.pushReplacementNamed(context, "/register");
+  void _onSignupPress(BuildContext context) {
+    Future.delayed(Duration.zero).then(
+      (value) => Navigator.pushReplacementNamed(context, "/register"),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
