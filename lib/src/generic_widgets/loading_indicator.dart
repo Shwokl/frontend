@@ -7,11 +7,15 @@ class LoadingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Stack(
         children: [
           BackgroundPattern(opacity: 0.4),
-          CircularProgressIndicator(),
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            alignment: Alignment.center,
+            child: CircularProgressIndicator(),
+          ),
         ],
       ),
     );
