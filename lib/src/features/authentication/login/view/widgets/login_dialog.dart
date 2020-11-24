@@ -12,7 +12,6 @@ class LoginDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Stack(
         children: [
           BackgroundPattern(opacity: 0.4),
