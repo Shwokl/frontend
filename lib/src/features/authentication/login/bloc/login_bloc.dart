@@ -17,6 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     yield LoginLoading();
     try {
       // todo API login attempt
+      await Future.delayed(Duration(seconds: 1));
       yield LoginSuccess();
     } on Failure catch (f) {
       yield LoginFail(f.message);

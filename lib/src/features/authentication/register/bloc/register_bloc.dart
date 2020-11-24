@@ -16,6 +16,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     yield RegisterLoading();
     try {
       // todo API register attempt
+      await Future.delayed(Duration(seconds: 1));
       yield RegisterSuccess();
     } on Failure catch (f) {
       yield RegisterFail(f.message);
