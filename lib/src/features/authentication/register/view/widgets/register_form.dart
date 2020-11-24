@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/features/authentication/register/bloc/register_bloc.dart';
 import 'package:frontend/src/generic_widgets/buttons/big_ass_button.dart';
 import 'package:frontend/src/generic_widgets/input_fields/email_input.dart';
 import 'package:frontend/src/generic_widgets/input_fields/name_input.dart';
@@ -23,7 +25,12 @@ class _RegisterFormState extends State<RegisterForm> {
   _RegisterFormState(this.flex);
 
   void _onRegisterPress() {
-    // TODO auth bloc -> Register
+    BlocProvider.of<RegisterBloc>(context).add(RegisterEvent(
+      name: _nameController.text,
+      username: _usernameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
+    ));
   }
 
   @override
