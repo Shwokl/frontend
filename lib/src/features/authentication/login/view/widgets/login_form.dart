@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/features/_generics_/code/snackbar.dart';
 import 'package:frontend/src/features/authentication/login/bloc/login_bloc.dart';
 import 'package:frontend/src/generic_widgets/buttons/big_ass_button.dart';
 import 'package:frontend/src/generic_widgets/input_fields/name_input.dart';
@@ -22,10 +23,16 @@ class _LoginFormState extends State<LoginForm> {
   _LoginFormState(this.flex);
 
   void onLoginPress(BuildContext context) {
-    BlocProvider.of<LoginBloc>(context).add(LoginEvent(
-      password: _passwordController.text,
-      username: _usernameController.text,
-    ));
+    if (_usernameController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      BlocProvider.of<LoginBloc>(context).add(LoginEvent(
+        password: _passwordController.text,
+        username: _usernameController.text,
+      ));
+    } else {
+      showSnackbar(
+          context: context, content: 'Username and password cannot be blank!');
+    }
   }
 
   @override
