@@ -33,5 +33,5 @@ class RegisterFail extends RegisterState {
   const RegisterFail(this.msg);
 
   @override
-  List<Object> get props => [this.msg];  
+  List<Object> get props => [msg];
 }

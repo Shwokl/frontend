@@ -8,6 +8,7 @@ class PasswordInputField extends StatefulWidget {
 
   @override
   _PasswordInputFieldState createState() =>
+      // ignore: no_logic_in_create_state
       _PasswordInputFieldState(controller);
 }
 
@@ -22,9 +23,11 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
     return GenericInputField(
       label: "Password",
       controller: controller,
-      prefixWidget: Icon(Icons.lock),
+      prefixWidget: const Icon(Icons.lock),
       suffixWidget: IconButton(
-        icon: _hidePassword ? Icon(MdiIcons.eyeOff) : Icon(MdiIcons.eye),
+        icon: _hidePassword
+            ? const Icon(MdiIcons.eyeOff)
+            : const Icon(MdiIcons.eye),
         onPressed: () {
           setState(() {
             _hidePassword = !_hidePassword;

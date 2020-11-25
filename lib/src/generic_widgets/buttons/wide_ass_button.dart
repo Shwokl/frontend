@@ -12,17 +12,17 @@ class WideAssButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 64.0,
+        vertical: 16.0,
+      ),
+      onPressed: onPress,
       child: Text(
         text,
         style: Theme.of(context).textTheme.headline5.copyWith(
               color: Theme.of(context).accentColor,
             ),
       ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 64.0,
-        vertical: 16.0,
-      ),
-      onPressed: onPress,
     );
   }
 }

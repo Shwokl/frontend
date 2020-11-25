@@ -15,16 +15,18 @@ class ShwoklAPI {
   /// and throws a [Failure] if an exception is caught
   ///
   Future<http.Response> sendRequest({
+    // url:
     @required String url,
+    // header:
     @required String user,
     @required String token,
+    // params
     int id = 1,
     @required String method,
     Map<String, String> params,
-    bool acceptCerts = true,
   }) async {
-    Map<String, String> header = {'username': user, 'password': token};
-    Map<String, dynamic> body = {'id': id, 'method': method, 'params': params};
+    final Map<String, String> header = {'username': user, 'password': token};
+    final Map<String, dynamic> body = {'id': id, 'method': method, 'params': params};
     return http.post(url, headers: header, body: jsonEncode(body));
   }
 }

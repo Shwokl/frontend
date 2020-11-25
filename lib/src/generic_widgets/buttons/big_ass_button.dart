@@ -12,6 +12,12 @@ class BigAssButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
+      color: Theme.of(context).accentColor,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 48.0,
+        vertical: 16.0,
+      ),
+      onPressed: onPress,
       child: Text(
         prompt,
         style: Theme.of(context).textTheme.headline5.copyWith(
@@ -19,12 +25,6 @@ class BigAssButton extends StatelessWidget {
               fontWeight: FontWeight.w700
             ),
       ),
-      color: Theme.of(context).accentColor,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 48.0,
-        vertical: 16.0,
-      ),
-      onPressed: onPress,
     );
   }
 }

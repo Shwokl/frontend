@@ -13,7 +13,7 @@ class EmailInputFiled extends StatelessWidget {
     return GenericInputField(
       label: "Email",
       controller: controller,
-      prefixWidget: Icon(Icons.email),
+      prefixWidget: const Icon(Icons.email),
       suffixWidget: null,
       hideText: false,
     );

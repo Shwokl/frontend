@@ -5,11 +5,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shwokl | Home"),
+        title: const Text("Shwokl | Home"),
       ),
       body: Container(
         alignment: Alignment.center,
-        child: Text("Welcome to your dashboard"),
+        child: const Text("Welcome to your dashboard"),
       ),
     );
   }

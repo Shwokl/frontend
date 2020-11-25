@@ -14,14 +14,14 @@ class LoginDialog extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          BackgroundPattern(opacity: 0.4),
+          const BackgroundPattern(opacity: 0.4),
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(
               horizontal: 120.0,
               vertical: 60.0,
             ),
-            child: BannerFormDialog(
+            child: const BannerFormDialog(
               banner: LoginBanner(flex: 2),
               form: LoginForm(flex: 3),
             ),

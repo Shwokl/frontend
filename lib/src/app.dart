@@ -31,8 +31,8 @@ class ShwoklApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/home': (context) => HomePage(),
-        '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
       },
     );
   }

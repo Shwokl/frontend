@@ -9,12 +9,12 @@ class LoadingIndicator extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          BackgroundPattern(opacity: 0.4),
+          const BackgroundPattern(opacity: 0.4),
           Container(
             width: double.infinity,
             height: double.infinity,
             alignment: Alignment.center,
-            child: CircularProgressIndicator(),
+            child: const CircularProgressIndicator(),
           ),
         ],
       ),

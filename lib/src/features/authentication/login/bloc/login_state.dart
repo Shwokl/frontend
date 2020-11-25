@@ -33,5 +33,5 @@ class LoginFail extends LoginState {
   const LoginFail(this.msg);
 
   @override
-  List<Object> get props => [this.msg];  
+  List<Object> get props => [msg];
 }

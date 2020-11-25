@@ -21,7 +21,7 @@ class RegisterBanner extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColorDark,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(32.0),
             bottomLeft: Radius.circular(32.0),
           ),
@@ -31,7 +31,7 @@ class RegisterBanner extends StatelessWidget {
             Expanded(child: Container()),
             Image.asset('lib/src/assets/plan.png'),
             Expanded(child: Container()),
-            Text("Already a member?"),
+            const Text("Already a member?"),
             const SizedBox(height: 8.0),
             WideAssButton(
               text: "Login",

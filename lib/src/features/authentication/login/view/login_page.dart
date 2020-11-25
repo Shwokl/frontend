@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
       Future.delayed(Duration.zero).then(
         (value) => Navigator.pushReplacementNamed(context, "/home"),
       );
-      return BackgroundPattern(opacity: 0.4);
+      return const BackgroundPattern(opacity: 0.4);
     } else {
       return const LoginDialog();
     }

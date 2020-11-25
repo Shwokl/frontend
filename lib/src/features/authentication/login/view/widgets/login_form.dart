@@ -11,6 +11,7 @@ class LoginForm extends StatefulWidget {
   const LoginForm({@required this.flex});
 
   @override
+  // ignore: no_logic_in_create_state
   _LoginFormState createState() => _LoginFormState(flex);
 }
 
@@ -44,7 +45,7 @@ class _LoginFormState extends State<LoginForm> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topRight: Radius.circular(32.0),
             bottomRight: Radius.circular(32.0),
           ),

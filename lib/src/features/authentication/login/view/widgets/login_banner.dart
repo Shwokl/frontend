@@ -22,7 +22,7 @@ class LoginBanner extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColorDark,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(32.0),
             bottomLeft: Radius.circular(32.0),
           ),
@@ -32,7 +32,7 @@ class LoginBanner extends StatelessWidget {
             Expanded(child: Container()),
             Image.asset('lib/src/assets/welcome.png'),
             Expanded(child: Container()),
-            Text("Not a member?"),
+            const Text("Not a member?"),
             const SizedBox(height: 8.0),
             WideAssButton(
               text: "Sign Up",

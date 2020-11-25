@@ -14,10 +14,5 @@ class RegisterEvent extends Equatable {
   });
 
   @override
-  List<Object> get props => [
-        this.name,
-        this.username,
-        this.email,
-        this.password,
-      ];
+  List<Object> get props => [name, username, email, password];
 }

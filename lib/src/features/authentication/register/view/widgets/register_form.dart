@@ -11,6 +11,7 @@ class RegisterForm extends StatefulWidget {
   const RegisterForm({@required this.flex});
 
   @override
+  // ignore: no_logic_in_create_state
   _RegisterFormState createState() => _RegisterFormState(flex);
 }
 
@@ -42,14 +43,14 @@ class _RegisterFormState extends State<RegisterForm> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topRight: Radius.circular(32.0),
             bottomRight: Radius.circular(32.0),
           ),
         ),
         child: Column(
           children: [
-            Expanded(child: Container(), flex: 3),
+            Expanded(child: Container()),
             Text(formTitle, style: Theme.of(context).textTheme.headline3),
             const SizedBox(height: 48.0),
             NameInputFiled(
@@ -69,7 +70,7 @@ class _RegisterFormState extends State<RegisterForm> {
             PasswordInputField(controller: _passwordController),
             const SizedBox(height: 48.0),
             BigAssButton(prompt: "Sign Up", onPress: _onRegisterPress),
-            Expanded(child: Container(), flex: 3),
+            Expanded(child: Container()),
           ],
         ),
       ),

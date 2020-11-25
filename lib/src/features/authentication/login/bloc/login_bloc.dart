@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/src/models/singletons/Shwokl_API.dart';
+import 'package:frontend/src/models/singletons/shwokl_api.dart';
 import 'package:http/http.dart';
 
 import 'package:frontend/src/features/_generics_/code/failure.dart';

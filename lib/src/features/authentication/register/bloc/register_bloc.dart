@@ -9,15 +9,15 @@ part 'register_event.dart';
 part 'register_state.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
-  RegisterBloc() : super(RegisterInitial());
+  RegisterBloc() : super(const RegisterInitial());
 
   @override
   Stream<RegisterState> mapEventToState(RegisterEvent event) async* {
-    yield RegisterLoading();
+    yield const RegisterLoading();
     try {
       // todo API register attempt
       await Future.delayed(Duration(seconds: 1));
-      yield RegisterSuccess();
+      yield const RegisterSuccess();
     } on Failure catch (f) {
       yield RegisterFail(f.message);
     }
