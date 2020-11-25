@@ -15,7 +15,7 @@ class ShwoklApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ThemeBloc>(
-          create: (context) => ThemeBloc(AppTheme.Light),
+          create: (context) => ThemeBloc(AppTheme.Dark),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
