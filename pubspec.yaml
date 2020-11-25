@@ -7,18 +7,18 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.1
+  equatable: ^1.2.5
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.1
   flutter_bloc: ^6.1.0
-  material_design_icons_flutter: ^4.0.5345
-  equatable: ^1.2.5
   http: ^0.12.2
+  material_design_icons_flutter: ^4.0.5345
 
 dev_dependencies:
-  lint: ^1.1.1
   flutter_test:
     sdk: flutter
+  lint: ^1.1.1
 
 # The following section is specific to Flutter.
 flutter:
