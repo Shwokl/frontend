@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/src/models/singletons/shwokl_api.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:frontend/src/features/_generics_/code/failure.dart';
 
@@ -18,7 +18,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
     yield const LoginLoading();
     try {
-      final Response response = await ShwoklAPI().sendRequest(
+      final http.Response response = await ShwoklAPI().sendRequest(
         url: "http://192.168.15.51:8080/api/v1/login",
         user: event.username,
         token: event.password,
