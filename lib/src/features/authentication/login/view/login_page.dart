@@ -6,7 +6,7 @@ import 'package:frontend/src/generic_widgets/background_pattern.dart';
 import 'package:frontend/src/generic_widgets/loading_indicator.dart';
 
 import '../bloc/login_bloc.dart';
-import 'widgets/login_dialog.dart';
+import 'layouts/all.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage();
@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
       );
       return const BackgroundPattern(opacity: 0.4);
     } else {
-      return const LoginDialog();
+      return const StandardLoginLayout();
     }
   }
 
