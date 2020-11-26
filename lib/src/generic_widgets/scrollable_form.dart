@@ -35,7 +35,10 @@ class ScrollableForm extends StatelessWidget {
     inputFields.add(callToAction);
 
     return Container(
-      color: Theme.of(context).primaryColor,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor,
+        borderRadius: BorderRadius.circular(32.0),
+      ),
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(32.0),
         child: Column(children: inputFields),

@@ -14,7 +14,13 @@ class DialogBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 4.0),
-      color: Theme.of(context).primaryColorDark,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColorDark,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(32.0),
+          bottomLeft: Radius.circular(32.0),
+        ),
+      ),
       child: Column(
         children: [
           Expanded(child: Container()),
