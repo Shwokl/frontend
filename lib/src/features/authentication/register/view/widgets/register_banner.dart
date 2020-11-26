@@ -17,7 +17,7 @@ class RegisterBanner extends StatelessWidget {
       imageSrc: 'lib/src/assets/plan.png',
       prompt: "Already a member?",
       button: WideAssButton(
-        text: "Sign Up",
+        text: "Log In",
         onPress: () => _onLoginPress(context),
       ),
     );
