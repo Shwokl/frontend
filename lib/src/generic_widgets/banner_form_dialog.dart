@@ -16,11 +16,13 @@ class BannerFormDialog extends StatelessWidget {
       elevation: 8.0,
       color: Theme.of(context).primaryColorLight,
       child: Container(
+        padding: const EdgeInsets.all(10.0),
         constraints: const BoxConstraints(
-          maxWidth: 1500,
-          maxHeight: 950,
+          maxWidth: 1200,
+          maxHeight: 650,
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             banner,
             form,
