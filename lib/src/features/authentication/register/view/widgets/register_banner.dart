@@ -1,44 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/src/generic_widgets/buttons/wide_ass_button.dart';
+import 'package:frontend/src/generic_widgets/dialog_banner.dart';
 
 class RegisterBanner extends StatelessWidget {
-  final int flex;
-  const RegisterBanner({@required this.flex});
+  const RegisterBanner();
 
   void _onLoginPress(BuildContext context) {
     Future.delayed(Duration.zero).then(
       (value) => Navigator.pushReplacementNamed(context, "/login"),
     );
   }
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: flex,
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: 32.0,
-          horizontal: 4.0,
-        ),
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColorDark,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(32.0),
-            bottomLeft: Radius.circular(32.0),
-          ),
-        ),
-        child: Column(
-          children: [
-            Expanded(child: Container()),
-            Image.asset('lib/src/assets/plan.png'),
-            Expanded(child: Container()),
-            const Text("Already a member?"),
-            const SizedBox(height: 8.0),
-            WideAssButton(
-              text: "Login",
-              onPress: () => _onLoginPress(context),
-            ),
-          ],
-        ),
+    return DialogBanner(
+      imageSrc: 'lib/src/assets/plan.png',
+      prompt: "Already a member?",
+      button: WideAssButton(
+        text: "Sign Up",
+        onPress: () => _onLoginPress(context),
       ),
     );
   }
