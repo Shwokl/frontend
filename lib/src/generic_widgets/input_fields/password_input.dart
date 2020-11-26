@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class PasswordInputField extends StatefulWidget {
   final TextEditingController controller;
-  const PasswordInputField({this.controller});
+  const PasswordInputField(this.controller);
 
   @override
   _PasswordInputFieldState createState() =>
