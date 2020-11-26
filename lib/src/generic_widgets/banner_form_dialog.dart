@@ -14,7 +14,7 @@ class BannerFormDialog extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
       elevation: 8.0,
-      color: Theme.of(context).primaryColorLight,
+      color: Theme.of(context).primaryColor,
       child: Container(
         padding: const EdgeInsets.all(10.0),
         constraints: const BoxConstraints(
