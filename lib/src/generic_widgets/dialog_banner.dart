@@ -17,12 +17,13 @@ class DialogBanner extends StatelessWidget {
       color: Theme.of(context).primaryColorDark,
       child: Column(
         children: [
-          const SizedBox(height: 8.0),
-          Image.asset(imageSrc),
           Expanded(child: Container()),
+          if (imageSrc.isNotEmpty) Image.asset(imageSrc),
+          const SizedBox(height: 8.0),
           Text(prompt),
           const SizedBox(height: 8.0),
-          button
+          button,
+          Expanded(child: Container()),
         ],
       ),
     );
