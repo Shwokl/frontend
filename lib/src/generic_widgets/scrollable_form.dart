@@ -14,7 +14,7 @@ class ScrollableForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // The widgets that will be laid in the ScrollView
-    List<Widget> inputFields;
+    final List<Widget> inputFields = [];
 
     // Add title
     inputFields.add(Text(title, style: Theme.of(context).textTheme.headline3));
