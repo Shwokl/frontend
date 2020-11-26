@@ -15,18 +15,38 @@ class ShwoklAPI {
   /// and throws a [Failure] if an exception is caught
   ///
   Future<http.Response> sendRequest({
-    // url:
     @required String url,
-    // header:
-    @required String user,
-    @required String token,
-    // params
-    int id = 1,
-    @required String method,
-    Map<String, String> params,
-  }) async {
-    final Map<String, String> header = {'username': user, 'password': token};
-    final Map<String, dynamic> body = {'id': id, 'method': method, 'params': params};
-    return http.post(url, headers: header, body: jsonEncode(body));
-  }
+    @required Map<String, String> header,
+    Map<String, dynamic> body,
+  }) async =>
+      http.post(url, headers: header, body: jsonEncode(body));
+
+  Future<http.Response> login({
+    @required String username,
+    @required String password,
+  }) =>
+      sendRequest(
+        url: "http://192.168.15.51:8080/api/v1/login",
+        header: {
+          'username': username,
+          'password': password,
+        },
+      );
+
+  Future<http.Response> register({
+    @required String username,
+    @required String password,
+    String name,
+    String email,
+  }) =>
+      sendRequest(
+        url: "http://192.168.15.51:8080/api/v1/register",
+        header: {
+          'username': username,
+          'password': password,
+          'name': name ?? "",
+          'email': email ?? "",
+        },
+        body: {},
+      );
 }
