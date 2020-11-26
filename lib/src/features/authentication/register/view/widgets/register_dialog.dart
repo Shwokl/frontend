@@ -21,9 +21,9 @@ class RegisterDialog extends StatelessWidget {
               horizontal: 120.0,
               vertical: 60.0,
             ),
-            child: const BannerFormDialog(
-              banner: RegisterBanner(flex: 2),
-              form: RegisterForm(flex: 3),
+            child: BannerFormDialog(
+              banner: const Expanded(flex: 2, child: RegisterBanner()),
+              form: Expanded(flex: 3, child: RegisterForm()),
             ),
           )
         ],
