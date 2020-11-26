@@ -3,21 +3,30 @@ import 'package:frontend/src/generic_widgets/input_fields/generic_input.dart';
 
 class NameInputFiled extends StatelessWidget {
   final TextEditingController controller;
-  final String label;
-  final IconData icon;
-
-  const NameInputFiled({
-    @required this.controller,
-    @required this.label,
-    @required this.icon,
-  });
+  const NameInputFiled(this.controller);
 
   @override
   Widget build(BuildContext context) {
     return GenericInputField(
-      label: label,
+      label: "Name",
       controller: controller,
-      prefixWidget: Icon(icon),
+      prefixWidget: const Icon(Icons.person),
+      suffixWidget: null,
+      hideText: false,
+    );
+  }
+}
+
+class UserNameInputFiled extends StatelessWidget {
+  final TextEditingController controller;
+  const UserNameInputFiled(this.controller);
+
+  @override
+  Widget build(BuildContext context) {
+    return GenericInputField(
+      label: "Username",
+      controller: controller,
+      prefixWidget: const Icon(Icons.fingerprint),
       suffixWidget: null,
       hideText: false,
     );
