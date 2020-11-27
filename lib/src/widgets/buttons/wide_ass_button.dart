@@ -19,9 +19,10 @@ class WideAssButton extends StatelessWidget {
       onPressed: onPress,
       child: Text(
         text,
-        style: Theme.of(context).textTheme.headline5.copyWith(
-              color: Theme.of(context).accentColor,
-            ),
+        style:  TextStyle(
+          color: Theme.of(context).accentColor,
+          fontSize: 24,
+        ),
       ),
     );
   }

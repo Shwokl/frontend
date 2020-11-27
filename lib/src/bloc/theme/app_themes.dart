@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: constant_identifier_names
 enum AppTheme { Dark, Light }
 
-final appThemeData = {
+final Map<AppTheme, ThemeData> appThemeData = {
   AppTheme.Dark: ThemeData.dark().copyWith(  // https://colorhunt.co/palette/207331
     primaryColorDark: const Color(0xFF1d2d50),
     primaryColor: const Color(0xFF133b5c),

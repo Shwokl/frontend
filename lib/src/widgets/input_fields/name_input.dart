@@ -12,8 +12,6 @@ class NameInputFiled extends StatelessWidget {
       label: "Name",
       controller: controller,
       prefixWidget: const Icon(Icons.person),
-      suffixWidget: null,
-      hideText: false,
     );
   }
 }
@@ -28,8 +26,6 @@ class UserNameInputFiled extends StatelessWidget {
       label: "Username",
       controller: controller,
       prefixWidget: const Icon(Icons.fingerprint),
-      suffixWidget: null,
-      hideText: false,
     );
   }
 }

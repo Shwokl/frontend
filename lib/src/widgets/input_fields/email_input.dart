@@ -13,8 +13,6 @@ class EmailInputFiled extends StatelessWidget {
       label: "Email",
       controller: controller,
       prefixWidget: const Icon(Icons.email),
-      suffixWidget: null,
-      hideText: false,
     );
   }
 }

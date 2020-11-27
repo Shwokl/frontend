@@ -20,10 +20,11 @@ class BigAssButton extends StatelessWidget {
       onPressed: onPress,
       child: Text(
         prompt,
-        style: Theme.of(context).textTheme.headline5.copyWith(
-              color: Theme.of(context).primaryColor,
-              fontWeight: FontWeight.w700
-            ),
+        style: TextStyle(
+          color: Theme.of(context).primaryColor,
+          fontWeight: FontWeight.w800,
+          fontSize: 24,
+        ),
       ),
     );
   }

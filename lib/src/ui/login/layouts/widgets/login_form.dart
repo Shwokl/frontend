@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/src/ui/login/bloc/login_bloc.dart';
+import 'package:frontend/src/bloc/auth/auth_bloc.dart';
+
 import 'package:frontend/src/widgets/buttons/big_ass_button.dart';
 import 'package:frontend/src/widgets/buttons/wide_ass_button.dart';
 import 'package:frontend/src/widgets/dialogs/elements/scrollable_form.dart';
@@ -10,7 +11,7 @@ import 'package:frontend/src/widgets/input_fields/password_input.dart';
 import 'package:frontend/src/widgets/snackbar.dart';
 
 class LoginForm extends StatelessWidget {
-  /// Controllers to be abole to read the contents of the input fields
+  /// Controllers to be able to read the contents of the input fields
   /// from the form.
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -32,7 +33,7 @@ class LoginForm extends StatelessWidget {
   void _onLoginPress(BuildContext context) {
     if (_usernameController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty) {
-      BlocProvider.of<LoginBloc>(context).add(LoginEvent(
+      BlocProvider.of<AuthBloc>(context).add(LoginEvent(
         password: _passwordController.text,
         username: _usernameController.text,
       ));

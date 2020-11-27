@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/bloc/auth/auth_bloc.dart';
 import 'package:frontend/src/widgets/background_pattern.dart';
 import 'package:frontend/src/widgets/loading_indicator.dart';
 
 import 'package:frontend/src/widgets/snackbar.dart';
 
-import '../bloc/login_bloc.dart';
 import 'layouts/all.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage();
 
-  Widget _builder(BuildContext context, LoginState state) {
-    if (state is LoginLoading) {
+  Widget _builder(BuildContext context, AuthState state) {
+    if (state is AuthLoading) {
       return const LoadingIndicator();
-    } else if (state is LoginSuccess) {
+    } else if (state is AuthSuccess) {
       Future.delayed(Duration.zero).then(
         (value) => Navigator.pushReplacementNamed(context, "/home"),
       );
@@ -24,13 +24,13 @@ class LoginPage extends StatelessWidget {
     }
   }
 
-  void _listener(BuildContext context, LoginState state) {
-    if (state is LoginSuccess) {
+  void _listener(BuildContext context, AuthState state) {
+    if (state is AuthSuccess) {
       showSnackbar(
         context: context,
         content: "Login Successful",
       );
-    } else if (state is LoginFail) {
+    } else if (state is AuthFailed) {
       showSnackbar(
         context: context,
         content: "Login Failed",
@@ -41,8 +41,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginBloc(),
-      child: BlocConsumer<LoginBloc, LoginState>(
+      create: (context) => AuthBloc(),
+      child: BlocConsumer<AuthBloc, AuthState>(
         listener: _listener,
         builder: _builder,
       ),

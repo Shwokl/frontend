@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:frontend/src/data/models/failure.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/material.dart';
 
 /// A singleton meant to handle all the API calls to the Kanbaord Server
 class ShwoklAPI {
@@ -17,7 +17,7 @@ class ShwoklAPI {
   Future<http.Response> sendRequest({
     @required String url,
     @required Map<String, String> header,
-    Map<String, dynamic> body,
+    Map<String, dynamic> body = const {},
   }) async =>
       http.post(url, headers: header, body: jsonEncode(body));
 
@@ -36,16 +36,16 @@ class ShwoklAPI {
   Future<http.Response> register({
     @required String username,
     @required String password,
-    String name,
-    String email,
+    String name = "",
+    String email = "",
   }) =>
       sendRequest(
         url: "http://192.168.15.51:8080/api/v1/register",
         header: {
           'username': username,
           'password': password,
-          'name': name ?? "",
-          'email': email ?? "",
+          'name': name,
+          'email': email,
         },
         body: {},
       );

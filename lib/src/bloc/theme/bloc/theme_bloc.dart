@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 import '../app_themes.dart';
 
@@ -15,7 +14,8 @@ part 'theme_state.dart';
 class ThemeBloc extends Bloc<ThemeSwitchEvent, ThemeState> {
   final AppTheme initialTheme;
   ThemeBloc(this.initialTheme)
-      : super(ThemeState(themeData: appThemeData[initialTheme]));
+      : super(ThemeState(
+            themeData: appThemeData[initialTheme] ?? ThemeData.dark()));
 
   @override
   Stream<ThemeState> mapEventToState(
@@ -23,9 +23,11 @@ class ThemeBloc extends Bloc<ThemeSwitchEvent, ThemeState> {
   ) async* {
     if (event is ThemeSwitchEvent) {
       if (state.themeData.brightness == Brightness.dark) {
-        yield ThemeState(themeData: appThemeData[AppTheme.Light]);
+        yield ThemeState(
+            themeData: appThemeData[AppTheme.Light] ?? ThemeData.light());
       } else {
-        yield ThemeState(themeData: appThemeData[AppTheme.Dark]);
+        yield ThemeState(
+            themeData: appThemeData[AppTheme.Dark] ?? ThemeData.dark());
       }
       // TODO notify preferences or smth to make change persist between app launches
     }

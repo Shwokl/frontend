@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/src/ui/home/home_page.dart';
 
 import 'bloc/theme/barrell.dart';
-import 'ui/login/view/login_page.dart';
-import 'ui/register/view/register_page.dart';
+import 'ui/login/login_page.dart';
+import 'ui/register/register_page.dart';
 
 class ShwoklApp extends StatelessWidget {
   const ShwoklApp();
