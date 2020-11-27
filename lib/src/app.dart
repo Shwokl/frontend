@@ -28,7 +28,7 @@ class ShwoklApp extends StatelessWidget {
     return MaterialApp(
       title: 'Shwokl',
       theme: state.themeData,
-      initialRoute: '/login',
+      initialRoute: '/home',
       routes: {
         '/home': (context) => HomePage(),
         '/login': (context) => const LoginPage(),

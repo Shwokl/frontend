@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/src/widgets/responsive_scaffold.dart';
+
+import 'layouts/all.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Shwokl | Home"),
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        child: const Text("Welcome to your dashboard"),
-      ),
+    return const ResponsiveScaffold(
+      mobilePortrait: PortraitMobileLayout(),
+      mobileLandscape: LandscapeMobileLayout(),
+      desktopLandscape: LandscapeDesktopLayout(),
+      desktopPortrait: PortraitDesktopLayout(),
     );
   }
 }
