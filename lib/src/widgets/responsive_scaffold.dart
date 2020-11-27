@@ -1,50 +1,32 @@
-import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class ResponsiveScaffold extends StatelessWidget {
   final Widget mobilePortrait;
   final Widget mobileLandscape;
-  final Widget tabletPortrait;
-  final Widget tabletLandscape;
-  final Widget desktopStandard;
-  final Widget desktopTall;
-  final Widget desktopWide;
+  final Widget desktopPortrait;
+  final Widget desktopLandscape;
 
   const ResponsiveScaffold({
     @required this.mobilePortrait,
     @required this.mobileLandscape,
-    @required this.tabletPortrait,
-    @required this.tabletLandscape,
-    @required this.desktopStandard,
-    @required this.desktopTall,
-    @required this.desktopWide,
+    @required this.desktopPortrait,
+    @required this.desktopLandscape,
   });
 
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-    final double height = MediaQuery.of(context).size.height;
-    final Orientation orientation = MediaQuery.of(context).orientation;
-
-    if (Platform.isAndroid || Platform.isIOS) {
-      if (orientation == Orientation.portrait) {
-        return mobilePortrait;
-      } else {
-        return mobileLandscape;
-      }
-    }
 
     if (kIsWeb) {
-      if (width < 400) {
-        return desktopTall;
+      if (width < 700) {
+        return desktopPortrait;
       }
-      if (height < 600) {
-        return desktopWide;
-      }
-
-      return desktopStandard;
+      return desktopLandscape;
     }
-    return const SizedBox(width: 0, height: 0);
+    if (MediaQuery.of(context).orientation == Orientation.portrait) {
+      return mobilePortrait;
+    }
+    return mobileLandscape;
   }
 }
