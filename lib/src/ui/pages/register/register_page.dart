@@ -7,7 +7,6 @@ import '../../../bloc/auth/auth_bloc.dart';
 import '../../widgets/background_pattern.dart';
 import '../../widgets/loading_indicator.dart';
 import '../../widgets/snackbar.dart';
-import 'views/widgets/register_dialog.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage();
@@ -21,7 +20,7 @@ class RegisterPage extends StatelessWidget {
       );
       return const BackgroundPattern();
     } else if (state is AuthFailed || state is AuthInitial) {
-      return const RegisterDialog();
+      return const LoadingIndicator();
     }
     return const SizedBox(width: 1.0, height: 1.0);
   }

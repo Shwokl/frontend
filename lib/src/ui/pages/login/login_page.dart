@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
       );
       return const BackgroundPattern();
     } else {
-      return const LoginView();
+      return WebView();
     }
   }
 

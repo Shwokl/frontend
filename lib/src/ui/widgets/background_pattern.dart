@@ -5,7 +5,7 @@ class BackgroundPattern extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String _pattern = "lib/src/assets/pattern/";
+    String _pattern = "lib/src/assets/patterns/memphis-mini";
     if (Theme.of(context).brightness == Brightness.dark) {
       _pattern += "dark.png";
     } else {
@@ -15,15 +15,10 @@ class BackgroundPattern extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      color: Colors.black,
-      child: Opacity(
-        opacity: 0.4,
-        child: Image.asset(
-          _pattern,
-          fit: BoxFit.cover,
-          height: double.infinity,
-          width: double.infinity,
-        ),
+      color: Colors.transparent,
+      child: Image.asset(
+        _pattern,
+        repeat: ImageRepeat.repeat,
       ),
     );
   }

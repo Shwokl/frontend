@@ -27,14 +27,13 @@ class GenericInputField extends StatelessWidget {
           borderRadius: BorderRadius.circular(6.0),
           borderSide: BorderSide(
             color: Theme.of(context).accentColor,
-            width: 0.5,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
           borderSide: BorderSide(
             color: Theme.of(context).accentColor,
-            width: 0.7,
+            width: 2,
           ),
         ),
       ),
