@@ -31,6 +31,7 @@ class ShwoklApp extends StatelessWidget {
       title: 'Shwokl',
       theme: state.themeData,
       initialRoute: '/login',
+      debugShowCheckedModeBanner: false, // TODO REMOVE ME
       routes: {
         '/home': (context) => HomePage(),
         '/login': (context) => const LoginPage(),
