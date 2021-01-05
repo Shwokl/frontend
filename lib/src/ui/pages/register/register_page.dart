@@ -1,39 +1,41 @@
+// External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/src/bloc/auth/auth_bloc.dart';
-import 'package:frontend/src/widgets/background_pattern.dart';
-import 'package:frontend/src/widgets/loading_indicator.dart';
 
-import 'package:frontend/src/widgets/snackbar.dart';
+// Local imports
+import '../../../bloc/auth/auth_bloc.dart';
+import '../../widgets/background_pattern.dart';
+import '../../widgets/loading_indicator.dart';
+import '../../widgets/snackbar.dart';
+import 'views/widgets/register_dialog.dart';
 
-import 'layouts/all.dart';
-
-class LoginPage extends StatelessWidget {
-  const LoginPage();
+class RegisterPage extends StatelessWidget {
+  const RegisterPage();
 
   Widget _builder(BuildContext context, AuthState state) {
     if (state is AuthLoading) {
       return const LoadingIndicator();
     } else if (state is AuthSuccess) {
       Future.delayed(Duration.zero).then(
-        (value) => Navigator.pushReplacementNamed(context, "/home"),
+        (value) => Navigator.pushReplacementNamed(context, "/login"),
       );
       return const BackgroundPattern();
-    } else {
-      return const StandardLoginLayout();
+    } else if (state is AuthFailed || state is AuthInitial) {
+      return const RegisterDialog();
     }
+    return const SizedBox(width: 1.0, height: 1.0);
   }
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
       showSnackbar(
         context: context,
-        content: "Login Successful",
+        content: "Register Successful. You can now Log In.",
       );
     } else if (state is AuthFailed) {
       showSnackbar(
         context: context,
-        content: "Login Failed",
+        content: "Register Failed",
       );
     }
   }

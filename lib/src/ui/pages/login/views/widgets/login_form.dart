@@ -1,14 +1,15 @@
+// External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/src/bloc/auth/auth_bloc.dart';
 
-import 'package:frontend/src/widgets/buttons/big_ass_button.dart';
-import 'package:frontend/src/widgets/buttons/wide_ass_button.dart';
-import 'package:frontend/src/widgets/dialogs/elements/scrollable_form.dart';
-import 'package:frontend/src/widgets/input_fields/name_input.dart';
-import 'package:frontend/src/widgets/input_fields/password_input.dart';
-
-import 'package:frontend/src/widgets/snackbar.dart';
+// Local imports
+import '../../../../widgets/buttons/big_ass_button.dart';
+import '../../../../widgets/buttons/wide_ass_button.dart';
+import '../../../../widgets/dialogs/elements/scrollable_form.dart';
+import '../../../../widgets/input_fields/name_input.dart';
+import '../../../../widgets/input_fields/password_input.dart';
+import '../../../../widgets/snackbar.dart';
 
 class LoginForm extends StatelessWidget {
   /// Controllers to be able to read the contents of the input fields

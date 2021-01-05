@@ -1,8 +1,9 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/widgets/background_pattern.dart';
-import 'package:frontend/src/widgets/dialogs/banner_form_dialog.dart';
 
-
+// Local imports
+import '../../../../widgets/background_pattern.dart';
+import '../../../../widgets/dialogs/banner_form_dialog.dart';
 import 'register_banner.dart';
 import 'register_form.dart';
 

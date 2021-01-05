@@ -1,16 +1,19 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/widgets/background_pattern.dart';
-import 'package:frontend/src/widgets/dialogs/banner_form_dialog.dart';
 
-import 'widgets/all.dart';
+// Local imposrts
+import '../../../widgets/background_pattern.dart';
+import '../../../widgets/dialogs/banner_form_dialog.dart';
+import 'widgets/login_banner.dart';
+import 'widgets/login_form.dart';
 
 ///
-/// [StandardLoginLayout] is the layout that should be displayed on desktop browsers
+/// [LoginView] is the layout that should be displayed on desktop browsers
 /// or tablets, when we are not 'restricted' in terms of vertical or horizontal
 /// space
 ///
-class StandardLoginLayout extends StatelessWidget {
-  const StandardLoginLayout();
+class LoginView extends StatelessWidget {
+  const LoginView();
 
   @override
   Widget build(BuildContext context) {

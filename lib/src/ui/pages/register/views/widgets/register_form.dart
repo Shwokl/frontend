@@ -1,10 +1,13 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/register/layouts/functions.dart';
-import 'package:frontend/src/widgets/buttons/big_ass_button.dart';
-import 'package:frontend/src/widgets/dialogs/elements/scrollable_form.dart';
-import 'package:frontend/src/widgets/input_fields/email_input.dart';
-import 'package:frontend/src/widgets/input_fields/name_input.dart';
-import 'package:frontend/src/widgets/input_fields/password_input.dart';
+
+// Local imporrts
+import '../../../../widgets/buttons/big_ass_button.dart';
+import '../../../../widgets/dialogs/elements/scrollable_form.dart';
+import '../../../../widgets/input_fields/email_input.dart';
+import '../../../../widgets/input_fields/name_input.dart';
+import '../../../../widgets/input_fields/password_input.dart';
+import '../../functions.dart';
 
 class RegisterForm extends StatelessWidget {
   /// Controllers to be abole to read the contents of the input fields

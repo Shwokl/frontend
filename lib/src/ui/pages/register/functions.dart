@@ -1,8 +1,10 @@
-
+// External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/src/bloc/auth/auth_bloc.dart';
-import 'package:frontend/src/widgets/snackbar.dart';
+
+// Local imports
+import '../../../bloc/auth/auth_bloc.dart';
+import '../../widgets/snackbar.dart';
 
 void navigateToLogin(BuildContext context) {
   Future.delayed(Duration.zero).then(
@@ -23,7 +25,13 @@ void navigateToLogin(BuildContext context) {
 /// This is implemented via the authentication BLoC.
 /// The BLoC states are handled in the login_page.dart/_builder function.
 ///
-void sendSignupEvent(BuildContext context,{@required String username, @required String password, @required String email, String name = "",}) {
+void sendSignupEvent(
+  BuildContext context, {
+  @required String username,
+  @required String password,
+  @required String email,
+  String name = "",
+}) {
   if (username.isNotEmpty && password.isNotEmpty && email.isNotEmpty) {
     BlocProvider.of<AuthBloc>(context).add(SignupEvent(
       name: name,
