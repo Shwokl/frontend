@@ -4,6 +4,7 @@ class WideFlatButton extends StatelessWidget {
   final VoidCallback onPressed;
   final EdgeInsets padding;
   final String text;
+  final Color color;
 
   const WideFlatButton({
     @required this.text,
@@ -12,6 +13,7 @@ class WideFlatButton extends StatelessWidget {
       vertical: 16.0,
       horizontal: 80.0,
     ),
+    this.color,
   });
 
   @override
@@ -22,7 +24,7 @@ class WideFlatButton extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          color: Theme.of(context).accentColor,
+          color: color ?? Theme.of(context).accentColor,
           fontSize: 18,
           letterSpacing: 1.2,
           fontWeight: FontWeight.w800,

@@ -42,9 +42,8 @@ class CustomAppBar extends StatelessWidget {
     // Add all trailing icons to the elements list
     elements.addAll(trailingIcons);
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(225, 50, 225, 25),
       child: Row(children: elements),
     );
   }

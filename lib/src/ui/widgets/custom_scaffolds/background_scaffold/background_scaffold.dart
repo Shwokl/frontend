@@ -25,7 +25,10 @@ class BackgroundScaffold extends StatelessWidget {
         body: Stack(
           children: [
             BackgroundImage(patternPath),
-            Column(children: [fakeAppBar, body]),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(225, 50, 225, 50),
+              child: Column(children: [fakeAppBar, body]),
+            ),
           ],
         ),
       ),

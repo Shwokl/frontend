@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/ui/pages/landing/landing_page.dart';
 
 // Local imports
 import 'bloc/theme/theme_bloc.dart';
@@ -30,12 +31,13 @@ class ShwoklApp extends StatelessWidget {
     return MaterialApp(
       title: 'Shwokl',
       theme: state.themeData,
-      initialRoute: '/login',
+      initialRoute: '/',
       debugShowCheckedModeBanner: false, // TODO REMOVE ME
       routes: {
-        '/home': (context) => HomePage(),
+        '/': (context) => LandingPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
+        '/home': (context) => HomePage(),
       },
     );
   }
