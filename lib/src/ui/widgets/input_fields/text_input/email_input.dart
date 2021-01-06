@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'generic_input.dart';
 
-
 class EmailInputFiled extends StatelessWidget {
   final TextEditingController controller;
-  const EmailInputFiled(this.controller);
+  final double width;
+
+  const EmailInputFiled({
+    @required this.controller,
+    @required this.width,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GenericInputField(
       label: "Email",
+      width: width,
       controller: controller,
       prefixWidget: const Icon(Icons.email),
     );

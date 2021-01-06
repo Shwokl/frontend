@@ -1,11 +1,11 @@
 // External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
 
 // Local imports
 import '../../../bloc/auth/auth_bloc.dart';
-import '../../widgets/background_pattern.dart';
-import '../../widgets/loading_indicator.dart';
+import '../../widgets/custom_scaffolds/loading_scaffold/loading_indicator.dart';
 import '../../widgets/snackbar.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -18,7 +18,7 @@ class RegisterPage extends StatelessWidget {
       Future.delayed(Duration.zero).then(
         (value) => Navigator.pushReplacementNamed(context, "/login"),
       );
-      return const BackgroundPattern();
+      return const BackgroundScaffold();
     } else if (state is AuthFailed || state is AuthInitial) {
       return const LoadingIndicator();
     }

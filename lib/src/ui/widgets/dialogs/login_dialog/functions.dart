@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Local imports
-import '../../../bloc/auth/auth_bloc.dart';
-import '../../widgets/snackbar.dart';
+import '../../../../bloc/auth/auth_bloc.dart';
+import '../../snackbar.dart';
 
 /// Replaces the current view and navigates to the signup form.
 ///
