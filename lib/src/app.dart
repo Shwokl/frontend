@@ -2,11 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/ui/pages/dashboard/dashboard_page.dart';
+import 'package:frontend/src/ui/pages/history/history_page.dart';
 import 'package:frontend/src/ui/pages/landing/landing_page.dart';
+import 'package:frontend/src/ui/pages/workouts/workouts_page.dart';
 
 // Local imports
 import 'bloc/theme/theme_bloc.dart';
-import 'ui/pages/home/home_page.dart';
 import 'ui/pages/login/login_page.dart';
 import 'ui/pages/register/register_page.dart';
 
@@ -37,7 +39,9 @@ class ShwoklApp extends StatelessWidget {
         '/': (context) => LandingPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
-        '/home': (context) => HomePage(),
+        '/dashboard': (context) => const DashboardPage(),
+        '/workouts': (context) => const WorkoutsPage(),
+        '/history': (contents) => const HistoryPage(),
       },
     );
   }

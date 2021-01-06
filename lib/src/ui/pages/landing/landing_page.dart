@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/pages/register/views/register_dialog/functions.dart';
+import 'package:frontend/src/ui/utils/navigation.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
+import 'package:frontend/src/ui/widgets/input_fields/buttons/nav_button.dart';
 import 'package:frontend/src/ui/widgets/input_fields/buttons/pill_button.dart';
 import 'package:frontend/src/ui/widgets/input_fields/buttons/theme_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/wide_flat_button.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -30,38 +30,23 @@ class _LandingPageState extends State<LandingPage> {
     return BackgroundScaffold(
       fakeAppBar: CustomAppBar(
         navItems: [
-          WideFlatButton(
+          NavButton(
             text: "Download",
-            color: Theme.of(context).primaryColorLight,
-            padding:
-                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
-            onPressed: () {
-              setState(() {
-                _navigateToURL("https://google.com");
-              });
-            },
+            onPressed: () => setState(() {
+              _navigateToURL("https://google.com"); //TODO change me
+            }),
           ),
-          WideFlatButton(
+          NavButton(
             text: "Docs",
-            color: Theme.of(context).primaryColorLight,
-            padding:
-                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
-            onPressed: () {
-              setState(() {
-                _navigateToURL("https://google.com");
-              });
-            },
+            onPressed: () => setState(() {
+              _navigateToURL("https://google.com"); // TODO change me
+            }),
           ),
-          WideFlatButton(
+          NavButton(
             text: "Contact",
-            color: Theme.of(context).primaryColorLight,
-            padding:
-                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
-            onPressed: () {
-              setState(() {
-                _navigateToURL("https://google.com");
-              });
-            },
+            onPressed: () => setState(() {
+              _navigateToURL("https://google.com"); // TODO change me
+            }),
           ),
         ],
         trailingIcons: [

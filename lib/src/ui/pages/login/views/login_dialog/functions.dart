@@ -1,19 +1,10 @@
 // External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/src/bloc/auth/auth_bloc.dart';
-import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 // Local imports
-
-/// Replaces the current view and navigates to the signup form.
-///
-/// This function gets called when the Signup button from the banner is pressed.
-void navigateToSignup(BuildContext context) {
-  Future.delayed(Duration.zero).then(
-    (value) => Navigator.pushNamed(context, "/register"),
-  );
-}
+import 'package:frontend/src/bloc/auth/auth_bloc.dart';
+import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 /// Places a [LoginEvent] in the stream of the [AuthBloc].
 ///

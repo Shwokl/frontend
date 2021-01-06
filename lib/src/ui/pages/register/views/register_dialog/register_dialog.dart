@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/src/ui/pages/register/views/register_dialog/functions.dart';
+import 'package:frontend/src/ui/utils/navigation.dart';
 import 'package:frontend/src/ui/widgets/dialogs/generic_dialog.dart';
 import 'package:frontend/src/ui/widgets/input_fields/buttons/pill_button.dart';
 import 'package:frontend/src/ui/widgets/input_fields/buttons/wide_flat_button.dart';

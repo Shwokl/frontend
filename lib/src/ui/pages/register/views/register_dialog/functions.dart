@@ -1,17 +1,11 @@
 // External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/src/bloc/auth/auth_bloc.dart';
-import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 // Local imports
-void navigateToLogin(BuildContext context) {
-  Future.delayed(Duration.zero).then(
-    (value) => Navigator.pushNamed(context, "/login"),
-  );
-}
+import 'package:frontend/src/ui/widgets/snackbar.dart';
+import 'package:frontend/src/bloc/auth/auth_bloc.dart';
 
-///
 /// [_onRegisterPress] gets called when the Signup button from
 /// the form is pressed.
 ///
