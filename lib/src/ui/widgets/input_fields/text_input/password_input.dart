@@ -3,32 +3,71 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import 'generic_input.dart';
 
-class PasswordInputField extends StatefulWidget {
+class PasswordInputField extends StatelessWidget {
   final TextEditingController controller;
   final double width;
-
   const PasswordInputField({
     @required this.controller,
     @required this.width,
   });
 
   @override
-  _PasswordInputFieldState createState() =>
-      // ignore: no_logic_in_create_state
-      _PasswordInputFieldState(controller, width);
+  Widget build(BuildContext context) {
+    return GenericPasswordInputField(
+      controller: controller,
+      width: width,
+      prompt: "Password",
+    );
+  }
 }
 
-class _PasswordInputFieldState extends State<PasswordInputField> {
+class ConfirmPasswordInputField extends StatelessWidget {
   final TextEditingController controller;
   final double width;
+  const ConfirmPasswordInputField({
+    @required this.controller,
+    @required this.width,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GenericPasswordInputField(
+      controller: controller,
+      width: width,
+      prompt: "Confirm Password",
+    );
+  }
+}
+
+class GenericPasswordInputField extends StatefulWidget {
+  final TextEditingController controller;
+  final double width;
+  final String prompt;
+
+  const GenericPasswordInputField({
+    @required this.controller,
+    @required this.width,
+    @required this.prompt,
+  });
+
+  @override
+  _GenericPasswordInputFieldState createState() =>
+      // ignore: no_logic_in_create_state
+      _GenericPasswordInputFieldState(controller, width, prompt);
+}
+
+class _GenericPasswordInputFieldState extends State<GenericPasswordInputField> {
+  final TextEditingController controller;
+  final double width;
+  final String prompt;
   bool _hidePassword = true;
 
-  _PasswordInputFieldState(this.controller, this.width);
+  _GenericPasswordInputFieldState(this.controller, this.width, this.prompt);
 
   @override
   Widget build(BuildContext context) {
     return GenericInputField(
-      label: "Password",
+      label: prompt,
       width: width,
       controller: controller,
       prefixWidget: const Icon(Icons.lock),

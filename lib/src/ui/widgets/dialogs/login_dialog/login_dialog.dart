@@ -34,7 +34,7 @@ class _LoginDialogState extends State<LoginDialog> {
       title: "Welcome back",
       width: 475,
       children: [
-        NameInputFiled(controller: _usernameController, width: 375),
+        UserNameInputFiled(controller: _usernameController, width: 375),
         const SizedBox(height: 32),
         PasswordInputField(controller: _passwordController, width: 375),
         const SizedBox(height: 8),
@@ -49,15 +49,7 @@ class _LoginDialogState extends State<LoginDialog> {
         const SizedBox(height: 16),
         PillButton(text: "Log in", onPressed: onLoginPress),
         const SizedBox(height: 16),
-        Text(
-          "Don't have an account?",
-          style: TextStyle(
-            color: Theme.of(context).highlightColor,
-            fontSize: 14,
-            letterSpacing: 1.2,
-            fontWeight: FontWeight.w200,
-          ),
-        ),
+        const StealthyBottomText("Don't have an account?"),
         WideFlatButton(
           text: "Sign up",
           onPressed: () => navigateToSignup(context),

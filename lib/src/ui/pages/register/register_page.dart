@@ -1,6 +1,7 @@
 // External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/ui/pages/register/views/web_view.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
 import 'package:frontend/src/ui/widgets/snackbar.dart';
 
@@ -19,10 +20,9 @@ class RegisterPage extends StatelessWidget {
         (value) => Navigator.pushReplacementNamed(context, "/login"),
       );
       return const BackgroundScaffold();
-    } else if (state is AuthFailed || state is AuthInitial) {
-      return const LoadingIndicator();
+    } else {
+      return WebView();
     }
-    return const SizedBox(width: 1.0, height: 1.0);
   }
 
   void _listener(BuildContext context, AuthState state) {

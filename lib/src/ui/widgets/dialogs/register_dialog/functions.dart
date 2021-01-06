@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 // Local imports
-import '../../../bloc/auth/auth_bloc.dart';
+import '../../../../bloc/auth/auth_bloc.dart';
 
 void navigateToLogin(BuildContext context) {
   Future.delayed(Duration.zero).then(

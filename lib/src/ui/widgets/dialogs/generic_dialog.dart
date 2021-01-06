@@ -47,3 +47,20 @@ class GenericDialog extends StatelessWidget {
     );
   }
 }
+
+class StealthyBottomText extends StatelessWidget {
+  final String text;
+  const StealthyBottomText(this.text);
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: Theme.of(context).primaryColorLight,
+        fontSize: 14,
+        letterSpacing: 1.2,
+        fontWeight: FontWeight.w200,
+      ),
+    );
+  }
+}
