@@ -70,11 +70,15 @@ class _GenericPasswordInputFieldState extends State<GenericPasswordInputField> {
       label: prompt,
       width: width,
       controller: controller,
-      prefixWidget: const Icon(Icons.lock),
+      prefixWidget: Icon(
+        Icons.lock,
+        color: Theme.of(context).accentColor,
+      ),
       suffixWidget: IconButton(
         icon: _hidePassword
             ? const Icon(MdiIcons.eyeOff)
             : const Icon(MdiIcons.eye),
+        color: Theme.of(context).accentColor,
         onPressed: () {
           setState(() {
             _hidePassword = !_hidePassword;

@@ -12,10 +12,25 @@ void showSnackbar(
   @required Icon icon,
 }) {
   Flushbar(
-    title: title,
-    message: message,
+    titleText: Text(
+      title,
+      style: TextStyle(
+        color: Theme.of(context).textTheme.headline1.color,
+        fontWeight: FontWeight.w600,
+        fontSize: 20,
+      ),
+    ),
+    messageText: Text(
+      message,
+      style: TextStyle(
+        color: Theme.of(context).textTheme.headline1.color,
+        fontWeight: FontWeight.w400,
+        fontSize: 18,
+      ),
+    ),
     icon: icon,
-    boxShadows: const [BoxShadow(blurRadius: 16.0)],
+    backgroundColor: Theme.of(context).primaryColor,
+    padding: const EdgeInsets.all(32.0),
     maxWidth: 750,
     borderRadius: 8.0,
     margin: const EdgeInsets.all(64.0),
@@ -30,7 +45,7 @@ void showErrorSnackbar(
 }) {
   const Icon errorIcon = Icon(
     Icons.error_outline,
-    color: Colors.redAccent,
+    color: Colors.red,
     size: 32.0,
   );
   showSnackbar(context, title: title, message: message, icon: errorIcon);
@@ -43,8 +58,8 @@ void showSuccessSnackbar(
 }) {
   const Icon successIcon = Icon(
     Icons.check,
-    color: Colors.greenAccent,
-    size: 32.0,
+    color: Colors.green,
+    size: 48.0,
   );
   showSnackbar(context, title: title, message: message, icon: successIcon);
 }
@@ -56,8 +71,8 @@ void showWarningSnackbar(
 }) {
   const Icon successIcon = Icon(
     Icons.warning_amber_outlined,
-    color: Colors.yellowAccent,
-    size: 32.0,
+    color: Colors.orange,
+    size: 48.0,
   );
   showSnackbar(context, title: title, message: message, icon: successIcon);
 }

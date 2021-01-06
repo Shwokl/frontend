@@ -17,7 +17,10 @@ class NameInputFiled extends StatelessWidget {
       label: "Name",
       width: width,
       controller: controller,
-      prefixWidget: const Icon(Icons.person),
+      prefixWidget: Icon(
+        Icons.person,
+        color: Theme.of(context).accentColor,
+      ),
     );
   }
 }
@@ -37,7 +40,10 @@ class UserNameInputFiled extends StatelessWidget {
       label: "Username",
       width: width,
       controller: controller,
-      prefixWidget: const Icon(Icons.fingerprint),
+      prefixWidget: Icon(
+        Icons.fingerprint,
+        color: Theme.of(context).accentColor,
+      ),
     );
   }
 }

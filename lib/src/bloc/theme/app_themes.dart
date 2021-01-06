@@ -20,9 +20,10 @@ final Map<AppTheme, ThemeData> appThemeData = {
   ),
   AppTheme.Light: ThemeData(
     brightness: Brightness.light,
-    primaryColor: const Color(0xFF000000),
-    primaryColorDark: const Color(0xFF000000),
-    accentColor: const Color(0xFF000000),
+    primaryColor: const Color(0xFFEEEEEE),
+    primaryColorDark: const Color(0xFF9A9A9A),
+    primaryColorLight: const Color(0xFFCACACA),
+    accentColor: const Color(0xFF694269),
     fontFamily: 'Poppins',
   ),
 };

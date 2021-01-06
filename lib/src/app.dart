@@ -22,7 +22,7 @@ class ShwoklApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ThemeBloc(AppTheme.Dark),
+      create: (context) => ThemeBloc(AppTheme.Light),
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: _buildWithTheme,
       ),
