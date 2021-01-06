@@ -6,6 +6,7 @@ import 'package:frontend/src/ui/widgets/input_fields/custom_checkbox.dart';
 import 'package:frontend/src/ui/widgets/input_fields/text_input/name_input.dart';
 import 'package:frontend/src/ui/widgets/input_fields/text_input/password_input.dart';
 
+import '../../../../utils/navigation.dart';
 import 'functions.dart';
 
 class LoginDialog extends StatefulWidget {
