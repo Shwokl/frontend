@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/src/ui/pages/register/views/register_dialog/functions.dart';
 import 'package:frontend/src/ui/widgets/dialogs/generic_dialog.dart';
-import 'package:frontend/src/ui/widgets/dialogs/register_dialog/functions.dart';
 import 'package:frontend/src/ui/widgets/input_fields/buttons/pill_button.dart';
 import 'package:frontend/src/ui/widgets/input_fields/buttons/wide_flat_button.dart';
 import 'package:frontend/src/ui/widgets/input_fields/text_input/email_input.dart';
 import 'package:frontend/src/ui/widgets/input_fields/text_input/name_input.dart';
 import 'package:frontend/src/ui/widgets/input_fields/text_input/password_input.dart';
+import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 class RegisterDialog extends StatefulWidget {
   const RegisterDialog();
@@ -22,6 +23,26 @@ class _RegisterDialogState extends State<RegisterDialog> {
   final TextEditingController _repassController = TextEditingController();
 
   void onCreateAccPress() {
+    if (_emailController.text.isEmpty ||
+        _usernameController.text.isEmpty ||
+        _passController.text.isEmpty ||
+        _repassController.text.isEmpty) {
+      showWarningSnackbar(
+        context,
+        title: "Please fill in all required fields!",
+        message:
+            "The bare minimum we need to set you up is:\n    - a username, so we know who to address,\n    - a valid e-mail address, so you can recover your password in case you forget it,\n    - a valid password.\nYou can keep your name a secret, if you so desire.",
+      );
+      return;
+    }
+    if (_passController.text != _repassController.text) {
+      showWarningSnackbar(
+        context,
+        title: "Invalid password!",
+        message: "Passwords don't match.\nSomeone must've made a typo!",
+      );
+      return;
+    }
     sendSignupEvent(
       context,
       name: _nameController.text,

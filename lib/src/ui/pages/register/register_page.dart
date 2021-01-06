@@ -16,7 +16,7 @@ class RegisterPage extends StatelessWidget {
     if (state is AuthLoading) {
       return const LoadingIndicator();
     } else if (state is AuthSuccess) {
-      Future.delayed(Duration.zero).then(
+      Future.delayed(const Duration(seconds: 2)).then(
         (value) => Navigator.pushReplacementNamed(context, "/login"),
       );
       return const BackgroundScaffold();

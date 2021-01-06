@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
     if (state is AuthLoading) {
       return const LoadingScaffold();
     } else if (state is AuthSuccess) {
-      Future.delayed(Duration.zero).then(
+      Future.delayed(const Duration(seconds: 2)).then(
         (value) => Navigator.pushReplacementNamed(context, "/home"),
       );
       return const BackgroundScaffold();
@@ -29,8 +29,8 @@ class LoginPage extends StatelessWidget {
     if (state is AuthSuccess) {
       showSuccessSnackbar(
         context,
-        title: "Authentication successful!",
-        message: "Welcome!",
+        title: "Welcome!",
+        message: "Authentication successful!",
       );
     } else if (state is AuthFailed) {
       showErrorSnackbar(

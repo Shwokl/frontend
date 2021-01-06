@@ -16,10 +16,10 @@ void showSnackbar(
     message: message,
     icon: icon,
     boxShadows: const [BoxShadow(blurRadius: 16.0)],
-    maxWidth: 450,
+    maxWidth: 750,
     borderRadius: 8.0,
     margin: const EdgeInsets.all(64.0),
-    duration: const Duration(seconds: 5),
+    duration: const Duration(seconds: 10),
   ).show(context);
 }
 

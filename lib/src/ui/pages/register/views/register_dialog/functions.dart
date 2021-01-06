@@ -1,11 +1,10 @@
 // External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/bloc/auth/auth_bloc.dart';
 import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 // Local imports
-import '../../../../bloc/auth/auth_bloc.dart';
-
 void navigateToLogin(BuildContext context) {
   Future.delayed(Duration.zero).then(
     (value) => Navigator.pushReplacementNamed(context, "/login"),
@@ -42,7 +41,7 @@ void sendSignupEvent(
   } else {
     showWarningSnackbar(
       context,
-      title: "Oops...",
+      title: "Please fill in all required fields!",
       message:
           "The username, password and email fields are required.\nPlease consider filling them in!",
     );
