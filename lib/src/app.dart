@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/src/ui/pages/dashboard/dashboard_page.dart';
 import 'package:frontend/src/ui/pages/history/history_page.dart';
 import 'package:frontend/src/ui/pages/landing/landing_page.dart';
+import 'package:frontend/src/ui/pages/settings/seettings_page.dart';
 import 'package:frontend/src/ui/pages/workouts/workouts_page.dart';
 
 // Local imports
@@ -42,6 +43,7 @@ class ShwoklApp extends StatelessWidget {
         '/dashboard': (context) => const DashboardPage(),
         '/workouts': (context) => const WorkoutsPage(),
         '/history': (contents) => const HistoryPage(),
+        '/settings': (context) => const SettingsPage(),
       },
     );
   }

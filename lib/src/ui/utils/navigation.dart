@@ -1,20 +1,12 @@
 import 'package:flutter/widgets.dart';
 
-void _navigateTo(
-  BuildContext context,
-  String route,
-  Object args,
-) {
+void _navigateTo(BuildContext context, String route, Object args) {
   Future.delayed(Duration.zero).then(
     (value) => Navigator.pushNamed(context, route, arguments: args),
   );
 }
 
-void _replaceAllWith(
-  BuildContext context,
-  String route,
-  Object args,
-) {
+void _replaceAllWith(BuildContext context, String route, Object args) {
   Future.delayed(Duration.zero).then(
     (value) {
       Navigator.popUntil(context, ModalRoute.withName('/'));
@@ -33,44 +25,30 @@ void _replaceWith(
   );
 }
 
-void navigateToLogin(
-  BuildContext context, {
-  Object args = const {},
-}) {
+void navigateToLogin(BuildContext context, {Object args = const {}}) {
   _navigateTo(context, "/login", args);
 }
 
-void navigateToSignup(
-  BuildContext context, {
-  Object args = const {},
-}) {
+void navigateToSignup(BuildContext context, {Object args = const {}}) {
   _navigateTo(context, "/register", args);
 }
 
-void navigateToDashboard(
-  BuildContext context, {
-  Object args = const {},
-}) {
+void navigateToSettings(BuildContext context, {Object args = const {}}) {
+  _navigateTo(context, "/settings", args);
+}
+
+void navigateToDashboard(BuildContext context, {Object args = const {}}) {
   _navigateTo(context, "/dashboard", args);
 }
 
-void navigateToWorkouts(
-  BuildContext context, {
-  Object args = const {},
-}) {
+void navigateToWorkouts(BuildContext context, {Object args = const {}}) {
   _navigateTo(context, "/workouts", args);
 }
 
-void navigateToHistory(
-  BuildContext context, {
-  Object args = const {},
-}) {
+void navigateToHistory(BuildContext context, {Object args = const {}}) {
   _navigateTo(context, "/history", args);
 }
 
-void resetToDashboard(
-  BuildContext context, {
-  Object args = const {},
-}) {
+void resetToDashboard(BuildContext context, {Object args = const {}}) {
   _replaceAllWith(context, "/dashboard", args);
 }
