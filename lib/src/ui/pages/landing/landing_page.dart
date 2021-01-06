@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/src/ui/pages/register/views/register_dialog/functions.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
 import 'package:frontend/src/ui/widgets/input_fields/buttons/pill_button.dart';
@@ -110,8 +111,8 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 const SizedBox(height: 32.0),
                 PillButton(
-                  text: "Lets install",
-                  onPressed: () {},
+                  text: "Take me to login",
+                  onPressed: () => navigateToLogin(context),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 96.0,
                     vertical: 16.0,

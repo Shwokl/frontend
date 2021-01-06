@@ -11,7 +11,7 @@ import 'package:frontend/src/ui/widgets/snackbar.dart';
 /// This function gets called when the Signup button from the banner is pressed.
 void navigateToSignup(BuildContext context) {
   Future.delayed(Duration.zero).then(
-    (value) => Navigator.pushReplacementNamed(context, "/register"),
+    (value) => Navigator.pushNamed(context, "/register"),
   );
 }
 

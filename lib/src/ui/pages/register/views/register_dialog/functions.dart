@@ -7,7 +7,7 @@ import 'package:frontend/src/ui/widgets/snackbar.dart';
 // Local imports
 void navigateToLogin(BuildContext context) {
   Future.delayed(Duration.zero).then(
-    (value) => Navigator.pushReplacementNamed(context, "/login"),
+    (value) => Navigator.pushNamed(context, "/login"),
   );
 }
 
