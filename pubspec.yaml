@@ -8,12 +8,13 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.1
-  equatable: ^1.2.5
+  equatable: ^1.2.5 # used for the BLoC pattern
+  flushbar: ^1.10.4 # used for custom snackbars
   flutter:
     sdk: flutter
   flutter_bloc: ^6.1.0
-  http: ^0.12.2
-  material_design_icons_flutter: ^4.0.5345
+  http: ^0.12.2 # used for sending api calls
+  material_design_icons_flutter: ^4.0.5345 # used for extra icons
 
 dev_dependencies:
   build_runner: ">=1.6.2 <2.0.0"

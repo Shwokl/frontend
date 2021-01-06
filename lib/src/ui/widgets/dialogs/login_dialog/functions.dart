@@ -37,9 +37,10 @@ void sendLoginEvent(
       ),
     );
   } else {
-    showSnackbar(
-      context: context,
-      content: 'Username and password cannot be blank!',
+    showWarningSnackbar(
+      context,
+      title: "Please fill all required fields!",
+      message: "We can't log you in without a username and password... can we?",
     );
   }
 }

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/loading_scaffold/loading_scaffold.dart';
+import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 // Local imports
 import '../../../bloc/auth/auth_bloc.dart';
-import '../../widgets/snackbar.dart';
 import 'views/web_view.dart';
 
 class LoginPage extends StatelessWidget {
@@ -27,14 +27,16 @@ class LoginPage extends StatelessWidget {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      showSnackbar(
-        context: context,
-        content: "Login Successful",
+      showSuccessSnackbar(
+        context,
+        title: "Authentication successful!",
+        message: "Welcome!",
       );
     } else if (state is AuthFailed) {
-      showSnackbar(
-        context: context,
-        content: "Login Failed",
+      showErrorSnackbar(
+        context,
+        title: "Authentication failed!",
+        message: "The username and password don't match any registered user.",
       );
     }
   }

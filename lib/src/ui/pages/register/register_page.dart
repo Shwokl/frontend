@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
+import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 // Local imports
 import '../../../bloc/auth/auth_bloc.dart';
 import '../../widgets/custom_scaffolds/loading_scaffold/loading_indicator.dart';
-import '../../widgets/snackbar.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage();
@@ -27,14 +27,15 @@ class RegisterPage extends StatelessWidget {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      showSnackbar(
-        context: context,
-        content: "Register Successful. You can now Log In.",
-      );
+      showSuccessSnackbar(context,
+          title: "Registration successful",
+          message:
+              "A new user has been successfully created!\nYou can now log in.");
     } else if (state is AuthFailed) {
-      showSnackbar(
-        context: context,
-        content: "Register Failed",
+      showErrorSnackbar(
+        context,
+        title: "Registration failed",
+        message: "Something went wrong during the registration process.",
       );
     }
   }
