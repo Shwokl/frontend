@@ -7,9 +7,10 @@ import '../api/generic_auth_api.dart';
 import '../models/credentials.dart';
 import '../models/token.dart';
 import '../services/generic_authentication_service.dart';
-import '../services/generic_signup_service.dart';
+import 'generic_registration_service.dart';
 
-class ShwoklAuthService implements GenericAuthService, GenericSignupService {
+class ShwoklAuthService
+    implements GenericAuthService, GenericRegistrationService {
   final GenericAuthApi _api;
 
   const ShwoklAuthService(this._api);
