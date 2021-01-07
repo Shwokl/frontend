@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart' show required;
 /// For now, we just use email based auth via checking against the database,
 /// but 3rd party services could be added, such as google, github or facebook
 enum AuthMethod {
-  email,
+  username,
 }
 
 /// A wrapper around the data required to perform authentication tasks.
