@@ -23,7 +23,7 @@ class ShwoklAuthService implements GenericAuthService, GenericSignupService {
     if (result.isError) {
       return result.asError;
     } else {
-      return Result.value(Token(result.asValue.value));
+      return Result.value(Token(value: result.asValue.value));
     }
   }
 
@@ -57,7 +57,7 @@ class ShwoklAuthService implements GenericAuthService, GenericSignupService {
     if (result.isError) {
       return result.asError;
     } else {
-      return Result.value(Token(result.asValue.value));
+      return Result.value(Token(value: result.asValue.value));
     }
   }
 }
