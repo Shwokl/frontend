@@ -9,12 +9,23 @@ import '../models/credentials.dart';
 import '../models/token.dart';
 import 'generic_auth_api.dart';
 
+/// A basic authentication and registration API
 class AuthApi implements GenericAuthApi {
-  final http.Client _client;
-  final String _baseUrl;
+  final http.Client _client; // http client used to make http requests
+  final String _baseUrl; // the base endpoint for our api
+  String signInRoute = '/auth/login';
+  String signUpRoute = '/auth/register';
+  String signOutRoute = '/auth/logout';
 
-  const AuthApi(this._client, this._baseUrl);
+  // Constructor
+  AuthApi(this._client, this._baseUrl);
 
+  /// Send an http request to the [signInRoute] endpoint of the API, with
+  /// the [credentials] in the body.
+  ///
+  /// If no [signInRoute] is specified, the default of '/auth/login' is used.
+  /// The server returns an access token if the credentials are correct, or an
+  /// error otherwise.
   @override
   Future<Result<String>> singIn(Credentials credentials) {
     return _sendPost(
@@ -23,6 +34,12 @@ class AuthApi implements GenericAuthApi {
     );
   }
 
+  /// Send an http request to the [signUpRoute] endpoint of the API, with the
+  /// [credentials] in the body.
+  ///
+  /// If no [signUpRoute] is specified, the default of '/auth/register' is used.
+  /// The server returns an access token if the creation was successful, or an
+  /// error otherwise.
   @override
   Future<Result<String>> singUp(Credentials credentials) {
     return _sendPost(
@@ -31,6 +48,11 @@ class AuthApi implements GenericAuthApi {
     );
   }
 
+  /// Send an http request to the [signOutRoute] endpoint of the API, with the
+  /// [token] in the header.
+  ///
+  /// If no [signOutRoute] is specified, the default of '/auth/logout' is used.
+  /// The server returns a boolean indicating whether or not the token was disposed of.
   @override
   Future<Result<bool>> signOut(Token token) async {
     final Result response = await _sendPost(
@@ -47,6 +69,12 @@ class AuthApi implements GenericAuthApi {
     );
   }
 
+  /// A wrapper for `http.Client.post(...)`.
+  ///
+  /// This function assumes a defaul [header] of { "Content-type": "application/json" }
+  /// if nothing else is provided and an empty [body].
+  /// The only required field is the actual [url] at which the request will be
+  /// sent.
   Future<Result<String>> _sendPost({
     @required final String url,
     final Map<String, String> header = const {
@@ -61,10 +89,10 @@ class AuthApi implements GenericAuthApi {
     if (response.statusCode != 200) {
       return Result.error(json['message']);
     }
-    if (json['token'] == null) {
+    if (json['result'] == null) {
       return Result.error(json['message']);
     } else {
-      return Result.value(json['token'].toString());
+      return Result.value(json['result'].toString());
     }
   }
 }
