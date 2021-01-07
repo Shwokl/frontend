@@ -8,7 +8,9 @@ import '../models/token.dart';
 ///
 /// This layer of abstraction is implemented to facilitate the integration of
 /// various services for performing registration operations.
+/// The required operations for any Servicee to qualify as a RegistrationService
+/// are: `signUp`
 abstract class GenericRegistrationService {
   /// Creates a new user via the specified service
-  Future<Result<Token>> signup();
+  Future<Result<Token>> signUp();
 }
