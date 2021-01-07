@@ -1,5 +1,6 @@
 // External imports
 import 'package:async/async.dart' show Result;
+import 'package:flutter/foundation.dart' show required;
 
 // Local imports
 import '../../api/generic_auth_api.dart';
@@ -13,6 +14,23 @@ class EmailRegistrationService implements GenericRegistrationService {
 
   // Constructor
   const EmailRegistrationService(this._api);
+
+  /// Bundles up an [email], [password], [name] and [username] into a Credentials object
+  /// with the `AuthMethod` of `AuthMethod.email`
+  Credentials buildCredentials({
+    String username,
+    String name,
+    @required String email,
+    @required String password,
+  }) {
+    return Credentials(
+      method: AuthMethod.email,
+      name: name,
+      username: username,
+      password: password,
+      email: email,
+    );
+  }
 
   /// Attempt to create a user with the give
   @override
