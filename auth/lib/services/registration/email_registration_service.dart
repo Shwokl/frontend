@@ -1,5 +1,4 @@
 // External imports
-import 'package:flutter/foundation.dart' show required;
 import 'package:async/async.dart' show Result;
 
 // Local imports
@@ -8,32 +7,23 @@ import '../../models/credentials.dart';
 import '../../models/token.dart';
 import '../../services/registration/generic_registration_service.dart';
 
+/// A registration service that accepts a `(email, password)` pair.
 class EmailRegistrationService implements GenericRegistrationService {
-  final GenericAuthApi _api;
+  final GenericAuthApi _api; // The api to which we 'forward' requests
+
+  // Constructor
   const EmailRegistrationService(this._api);
 
+  /// Attempt to create a user with the give
   @override
-  Future<Result<Token>> signUp({
-    final String name = "",
-    final String username = "",
-    @required final String password,
-    @required final String email,
-  }) async {
-    assert(name.isNotEmpty && name != null);
-    assert(username.isNotEmpty && username != null);
-    assert(password.isNotEmpty && password != null);
-    assert(email.isNotEmpty && email != null);
+  Future<Result<Token>> signUp(final Credentials credentials) async {
+    // Ensure proper credentials have been passed
+    assert(credentials != null && credentials.method == AuthMethod.email);
 
-    final Credentials credentials = Credentials(
-      method: AuthMethod.email,
-      email: email,
-      name: name,
-      username: username,
-      password: password,
-    );
-
+    // Send the actual api request
     final Result<String> result = await _api.singUp(credentials);
 
+    // Parse the response
     if (result.isError) {
       return result.asError;
     } else {

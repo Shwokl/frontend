@@ -2,9 +2,10 @@
 import 'package:async/async.dart' show Result;
 
 // Local imports
+import '../../models/credentials.dart';
 import '../../models/token.dart';
 
-/// A template for all Registration Services to adhere to.
+/// A template for all `RegistrationServices` to adhere to.
 ///
 /// This layer of abstraction is implemented to facilitate the integration of
 /// various services for performing registration operations.
@@ -12,5 +13,8 @@ import '../../models/token.dart';
 /// are: `signUp`
 abstract class GenericRegistrationService {
   /// Creates a new user via the specified service
-  Future<Result<Token>> signUp();
+  ///
+  /// If the user is created successfuly, an access [token] should be returned
+  /// that can be used to authorize any subsequent actions.
+  Future<Result<Token>> signUp(final Credentials credentials);
 }
