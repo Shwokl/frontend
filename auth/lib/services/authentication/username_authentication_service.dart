@@ -8,24 +8,24 @@ import '../../models/credentials.dart';
 import '../../models/token.dart';
 import 'generic_authentication_service.dart';
 
-/// An authentication service that validate as `(email, password)` pair.
-class EmailAuthenticationService implements GenericAuthSenticationervice {
+/// An authentication service that validate as `(username, password)` pair.
+class UsernameAuthenticationService implements GenericAuthSenticationervice {
   final GenericAuthApi _api; // the api to which we 'forward' the calls
 
   // Constructor
-  const EmailAuthenticationService(this._api);
+  const UsernameAuthenticationService(this._api);
 
   /// Bundles up an [email], [password], [name] and [username] into a Credentials object
   /// with the `AuthMethod` of `AuthMethod.email`.
   @override
   Credentials buildCredentials({
-    String username = "",
+    @required String username,
     String name = "",
-    @required String email,
+    String email = "",
     @required String password,
   }) {
     return Credentials(
-      method: AuthMethod.email,
+      method: AuthMethod.username,
       name: name,
       username: username,
       password: password,
