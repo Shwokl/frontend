@@ -1,5 +1,6 @@
 // External imports
 import 'package:async/async.dart' show Result;
+import 'package:flutter/foundation.dart' show required;
 
 // Local imports
 import '../../api/generic_auth_api.dart';
@@ -13,6 +14,24 @@ class EmailAuthenticationService implements GenericAuthSenticationervice {
 
   // Constructor
   const EmailAuthenticationService(this._api);
+
+  /// Bundles up an [email], [password], [name] and [username] into a Credentials object
+  /// with the `AuthMethod` of `AuthMethod.email`.
+  @override
+  Credentials buildCredentials({
+    String username = "",
+    String name = "",
+    @required String email,
+    @required String password,
+  }) {
+    return Credentials(
+      method: AuthMethod.email,
+      name: name,
+      username: username,
+      password: password,
+      email: email,
+    );
+  }
 
   /// Send the given [credetials] to the API server for validation.
   ///
