@@ -2,7 +2,7 @@
 import 'package:async/async.dart' show Result;
 
 // Local imports
-import '../models/token.dart';
+import '../../models/token.dart';
 
 /// A template for all Registration Services to adhere to.
 ///

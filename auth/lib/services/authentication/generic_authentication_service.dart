@@ -2,8 +2,8 @@
 import 'package:async/async.dart' show Result;
 
 // Local imports
-import '../models/credentials.dart';
-import '../models/token.dart';
+import '../../models/credentials.dart';
+import '../../models/token.dart';
 
 /// A template for all Authentication Services to adhere to.
 ///
