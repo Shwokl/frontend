@@ -5,15 +5,15 @@ import 'package:flutter/foundation.dart' show required;
 import 'package:http/http.dart' as http;
 
 // Local imports
-import '../api/generic_auth_api.dart';
 import '../models/credentials.dart';
 import '../models/token.dart';
+import 'generic_auth_api.dart';
 
-class ShwoklApi implements GenericAuthApi {
+class AuthApi implements GenericAuthApi {
   final http.Client _client;
   final String _baseUrl;
 
-  const ShwoklApi(this._client, this._baseUrl);
+  const AuthApi(this._client, this._baseUrl);
 
   @override
   Future<Result<String>> singIn(Credentials credentials) {
@@ -42,7 +42,9 @@ class ShwoklApi implements GenericAuthApi {
     );
 
     if (response.isError) return response.asError;
-    return Result.value(response.asValue.value == "ok");
+    return Result.value(
+      response.asValue.value.toString().toLowerCase() == "true",
+    );
   }
 
   Future<Result<String>> _sendPost({
