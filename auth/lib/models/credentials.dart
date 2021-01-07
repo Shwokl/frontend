@@ -19,4 +19,14 @@ class Credentials {
     this.password,
     this.name,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'method': method,
+      'name': name,
+      'username': username,
+      'email': email,
+      'password': password,
+    };
+  }
 }

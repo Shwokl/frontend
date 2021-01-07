@@ -16,21 +16,33 @@ class ShwoklApi implements GenericAuthApi {
   const ShwoklApi(this._client, this._baseUrl);
 
   @override
-  Future<Result<bool>> signOut(Token token) {
-    // TODO: implement signOut
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Result<String>> singIn(Credentials credentials) {
-    // TODO: implement singIn
-    throw UnimplementedError();
+    return _sendPost(
+      url: "$_baseUrl/auth/login",
+      body: credentials.toMap(),
+    );
   }
 
   @override
   Future<Result<String>> singUp(Credentials credentials) {
-    // TODO: implement singUp
-    throw UnimplementedError();
+    return _sendPost(
+      url: "$_baseUrl/auth/register",
+      body: credentials.toMap(),
+    );
+  }
+
+  @override
+  Future<Result<bool>> signOut(Token token) async {
+    final Result response = await _sendPost(
+      url: "$_baseUrl/auth/signout",
+      header: {
+        "Content-type": "application/json",
+        "Authorization": token.value,
+      },
+    );
+
+    if (response.isError) return response.asError;
+    return Result.value(response.asValue.value == "ok");
   }
 
   Future<Result<String>> _sendPost({
