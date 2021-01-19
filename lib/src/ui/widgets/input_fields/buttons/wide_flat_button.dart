@@ -18,9 +18,11 @@ class WideFlatButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
+      style: TextButton.styleFrom(
+        padding: padding,
+      ),
       onPressed: onPressed,
-      padding: padding,
       child: Text(
         text,
         style: TextStyle(
