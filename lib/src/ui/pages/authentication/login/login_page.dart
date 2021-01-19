@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
       return const LoadingScaffold();
     } else if (state is AuthSuccess) {
       Future.delayed(const Duration(seconds: 2)).then(
-        (value) => Navigator.pushReplacementNamed(context, "/dashboard"),
+        (value) => Navigator.pushReplacementNamed(context, "/home"),
       );
       return const BackgroundScaffold();
     } else {
