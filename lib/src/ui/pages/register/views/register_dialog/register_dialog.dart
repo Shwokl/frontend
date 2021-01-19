@@ -97,7 +97,7 @@ class SubText extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-          fontWeight: FontWeight.w200,
+          fontWeight: FontWeight.w400,
           fontSize: 14,
         ),
       ),

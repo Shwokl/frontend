@@ -53,13 +53,16 @@ class StealthyBottomText extends StatelessWidget {
   const StealthyBottomText(this.text);
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Text(
       text,
       style: TextStyle(
-        color: Theme.of(context).primaryColorLight,
+        color: theme.brightness == Brightness.dark
+            ? Colors.white24
+            : Colors.black38,
         fontSize: 14,
         letterSpacing: 1.2,
-        fontWeight: FontWeight.w200,
+        fontWeight: FontWeight.w400,
       ),
     );
   }
