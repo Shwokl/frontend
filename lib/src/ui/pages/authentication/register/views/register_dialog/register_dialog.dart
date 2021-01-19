@@ -1,13 +1,16 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/pages/register/views/register_dialog/functions.dart';
-import 'package:frontend/src/ui/utils/navigation.dart';
-import 'package:frontend/src/ui/widgets/dialogs/generic_dialog.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/pill_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/wide_flat_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/text_input/email_input.dart';
-import 'package:frontend/src/ui/widgets/input_fields/text_input/name_input.dart';
-import 'package:frontend/src/ui/widgets/input_fields/text_input/password_input.dart';
-import 'package:frontend/src/ui/widgets/snackbar.dart';
+
+// Local imports
+import '../../../../../../ui/pages/authentication/register/views/register_dialog/functions.dart';
+import '../../../../../../ui/utils/navigation.dart';
+import '../../../../../../ui/widgets/dialogs/generic_dialog.dart';
+import '../../../../../../ui/widgets/input_fields/buttons/pill_button.dart';
+import '../../../../../../ui/widgets/input_fields/buttons/wide_flat_button.dart';
+import '../../../../../../ui/widgets/input_fields/text_input/email_input.dart';
+import '../../../../../../ui/widgets/input_fields/text_input/name_input.dart';
+import '../../../../../../ui/widgets/input_fields/text_input/password_input.dart';
+import '../../../../../../ui/widgets/snackbar.dart';
 
 class RegisterDialog extends StatefulWidget {
   const RegisterDialog();

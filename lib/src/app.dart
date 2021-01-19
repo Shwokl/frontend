@@ -2,16 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/src/ui/pages/dashboard/dashboard_page.dart';
-import 'package:frontend/src/ui/pages/history/history_page.dart';
 import 'package:frontend/src/ui/pages/landing/landing_page.dart';
 import 'package:frontend/src/ui/pages/settings/seettings_page.dart';
-import 'package:frontend/src/ui/pages/workouts/workouts_page.dart';
 
 // Local imports
 import 'bloc/theme/theme_bloc.dart';
-import 'ui/pages/login/login_page.dart';
-import 'ui/pages/register/register_page.dart';
+import 'ui/pages/authentication/login/login_page.dart';
+import 'ui/pages/authentication/register/register_page.dart';
 
 /// A custom `StatelessWidget` that represents the entrypoint of our app.
 ///
@@ -40,9 +37,6 @@ class ShwoklApp extends StatelessWidget {
         '/': (context) => LandingPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
-        '/dashboard': (context) => const DashboardPage(),
-        '/workouts': (context) => const WorkoutsPage(),
-        '/history': (contents) => const HistoryPage(),
         '/settings': (context) => const SettingsPage(),
       },
     );

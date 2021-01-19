@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Local imports
-import 'package:frontend/src/ui/widgets/snackbar.dart';
-import 'package:frontend/src/bloc/auth/auth_bloc.dart';
+import '../../../../../../bloc/auth/auth_bloc.dart';
+import '../../../../../../ui/widgets/snackbar.dart';
 
 /// [_onRegisterPress] gets called when the Signup button from
 /// the form is pressed.

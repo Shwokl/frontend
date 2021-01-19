@@ -1,23 +1,23 @@
 // External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/ui/pages/authentication/register/views/web_view.dart';
 import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
-import 'package:frontend/src/ui/widgets/custom_scaffolds/loading_scaffold/loading_scaffold.dart';
 import 'package:frontend/src/ui/widgets/snackbar.dart';
 
 // Local imports
-import '../../../bloc/auth/auth_bloc.dart';
-import 'views/web_view.dart';
+import '../../../../bloc/auth/auth_bloc.dart';
+import '../../../widgets/custom_scaffolds/loading_scaffold/loading_indicator.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage();
+class RegisterPage extends StatelessWidget {
+  const RegisterPage();
 
   Widget _builder(BuildContext context, AuthState state) {
     if (state is AuthLoading) {
-      return const LoadingScaffold();
+      return const LoadingIndicator();
     } else if (state is AuthSuccess) {
       Future.delayed(const Duration(seconds: 2)).then(
-        (value) => Navigator.pushReplacementNamed(context, "/dashboard"),
+        (value) => Navigator.pushReplacementNamed(context, "/login"),
       );
       return const BackgroundScaffold();
     } else {
@@ -27,16 +27,15 @@ class LoginPage extends StatelessWidget {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      showSuccessSnackbar(
-        context,
-        title: "Welcome!",
-        message: "Authentication successful!",
-      );
+      showSuccessSnackbar(context,
+          title: "Registration successful",
+          message:
+              "A new user has been successfully created!\nYou can now log in.");
     } else if (state is AuthFailed) {
       showErrorSnackbar(
         context,
-        title: "Authentication failed!",
-        message: "The username and password don't match any registered user.",
+        title: "Registration failed",
+        message: "Something went wrong during the registration process.",
       );
     }
   }

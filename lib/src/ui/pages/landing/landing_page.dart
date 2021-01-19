@@ -1,12 +1,15 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/utils/navigation.dart';
-import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
-import 'package:frontend/src/ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/nav_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/pill_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/theme_button.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+// Local imports
+import '../../../ui/utils/navigation.dart';
+import '../../../ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
+import '../../../ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
+import '../../../ui/widgets/input_fields/buttons/nav_button.dart';
+import '../../../ui/widgets/input_fields/buttons/pill_button.dart';
+import '../../../ui/widgets/input_fields/buttons/theme_button.dart';
 
 class LandingPage extends StatefulWidget {
   @override

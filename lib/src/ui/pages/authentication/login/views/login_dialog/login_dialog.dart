@@ -1,12 +1,14 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/widgets/dialogs/generic_dialog.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/pill_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/wide_flat_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/custom_checkbox.dart';
-import 'package:frontend/src/ui/widgets/input_fields/text_input/name_input.dart';
-import 'package:frontend/src/ui/widgets/input_fields/text_input/password_input.dart';
 
-import '../../../../utils/navigation.dart';
+// Local imports
+import '../../../../../utils/navigation.dart';
+import '../../../../../widgets/dialogs/generic_dialog.dart';
+import '../../../../../widgets/input_fields/buttons/pill_button.dart';
+import '../../../../../widgets/input_fields/buttons/wide_flat_button.dart';
+import '../../../../../widgets/input_fields/custom_checkbox.dart';
+import '../../../../../widgets/input_fields/text_input/name_input.dart';
+import '../../../../../widgets/input_fields/text_input/password_input.dart';
 import 'functions.dart';
 
 class LoginDialog extends StatefulWidget {

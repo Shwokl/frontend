@@ -1,9 +1,11 @@
 // External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
-import 'package:frontend/src/ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
 
-import 'login_dialog/login_dialog.dart';
+// Internal imports
+import '../../../../widgets/custom_scaffolds/background_scaffold/background_scaffold.dart';
+import '../../../../widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
+
+import 'register_dialog/register_dialog.dart';
 
 class WebView extends StatefulWidget {
   @override
@@ -11,6 +13,8 @@ class WebView extends StatefulWidget {
 }
 
 class _WebViewState extends State<WebView> {
+  // bool _isRemember = false;
+
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
@@ -18,7 +22,7 @@ class _WebViewState extends State<WebView> {
       body: Column(
         children: const [
           SizedBox(height: 32),
-          LoginDialog(),
+          RegisterDialog(),
         ],
       ),
     );
