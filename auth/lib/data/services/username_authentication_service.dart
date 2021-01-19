@@ -4,9 +4,9 @@ import 'package:flutter/foundation.dart' show required;
 
 // Local imports
 import '../../api/generic_auth_api.dart';
-import '../../models/credentials.dart';
-import '../../models/token.dart';
-import 'generic_authentication_service.dart';
+import '../../services/generic_authentication_service.dart';
+import '../models/credentials.dart';
+import '../models/token.dart';
 
 /// An authentication service that validate as `(username, password)` pair.
 class UsernameAuthenticationService implements GenericAuthSenticationervice {

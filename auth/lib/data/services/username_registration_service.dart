@@ -4,9 +4,9 @@ import 'package:flutter/foundation.dart' show required;
 
 // Local imports
 import '../../api/generic_auth_api.dart';
-import '../../models/credentials.dart';
-import '../../models/token.dart';
-import 'generic_registration_service.dart';
+import '../../services/generic_registration_service.dart';
+import '../models/credentials.dart';
+import '../models/token.dart';
 
 /// A registration service that accepts an `(username, password)` pair.
 class UsernameRegistrationService implements GenericRegistrationService {

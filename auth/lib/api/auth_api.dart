@@ -5,8 +5,8 @@ import 'package:flutter/foundation.dart' show required;
 import 'package:http/http.dart' as http;
 
 // Local imports
-import '../models/credentials.dart';
-import '../models/token.dart';
+import '../data/models/credentials.dart';
+import '../data/models/token.dart';
 import 'generic_auth_api.dart';
 
 /// A basic authentication and registration API

@@ -2,9 +2,9 @@
 import 'package:async/async.dart' show Result;
 
 // Local imports
-import '../../models/credentials.dart';
-import '../../models/token.dart';
-import '../../services/generic_credentials_service.dart';
+import '../data/models/credentials.dart';
+import '../data/models/token.dart';
+import '../services/generic_credentials_service.dart';
 
 /// A template for all `RegistrationServices` to adhere to.
 ///
