@@ -7,6 +7,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  auth:
+    path: ./auth
   cupertino_icons: ^1.0.1
   equatable: ^1.2.5 # used for the BLoC pattern
   flushbar: ^1.10.4 # used for custom snackbars
