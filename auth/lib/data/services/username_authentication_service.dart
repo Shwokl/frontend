@@ -25,7 +25,6 @@ class UsernameAuthenticationService implements IAuthSenticationervice {
     @required String password,
   }) {
     return Credentials(
-      method: AuthMethod.username,
       name: name,
       username: username,
       password: password,

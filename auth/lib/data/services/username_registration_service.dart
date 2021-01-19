@@ -25,7 +25,6 @@ class UsernameRegistrationService implements IRegistrationService {
     @required String password,
   }) {
     return Credentials(
-      method: AuthMethod.username,
       name: name,
       username: username,
       password: password,
@@ -41,7 +40,7 @@ class UsernameRegistrationService implements IRegistrationService {
   @override
   Future<Result<Token>> signUp(final Credentials credentials) async {
     // Ensure proper credentials have been passed
-    assert(credentials != null && credentials.method == AuthMethod.username);
+    assert(credentials != null);
 
     // Send the actual api request
     final Result<String> result = await _api.singUp(credentials);

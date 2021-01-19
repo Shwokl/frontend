@@ -1,13 +1,4 @@
-// External imports
-import 'package:flutter/foundation.dart' show required;
-
-/// A list of all the services available for authentication.
-///
-/// For now, we just use email based auth via checking against the database,
-/// but 3rd party services could be added, such as google, github or facebook
-enum AuthMethod {
-  username,
-}
+import 'package:meta/meta.dart' show required;
 
 /// A wrapper around the data required to perform authentication tasks.
 ///
@@ -25,7 +16,6 @@ enum AuthMethod {
 ///* of enforcing any other field as `@required` on it's own, besides the [method]
 ///* and the [email]!
 class Credentials {
-  final AuthMethod method;
   final String name;
   final String username;
   final String email;
@@ -33,17 +23,15 @@ class Credentials {
 
   // Constructor
   Credentials({
-    @required this.method,
-    @required this.email,
-    this.username = "",
-    this.password = "",
+    this.email = "",
+    @required this.username,
+    @required this.password,
     this.name = "",
   });
 
   /// Convert the current object to a Map<String, dynamic> for embedding it in http requests
   Map<String, dynamic> toMap() {
     return {
-      'method': method,
       'name': name,
       'username': username,
       'email': email,
