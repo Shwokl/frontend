@@ -3,14 +3,14 @@ import 'package:async/async.dart' show Result;
 import 'package:flutter/foundation.dart' show required;
 
 // Local imports
-import '../../api/generic_auth_api.dart';
-import '../../services/generic_registration_service.dart';
+import '../../api/auth_api_interface.dart';
+import '../../services/registration_service_interface.dart';
 import '../models/credentials.dart';
 import '../models/token.dart';
 
 /// A registration service that accepts an `(username, password)` pair.
-class UsernameRegistrationService implements GenericRegistrationService {
-  final GenericAuthApi _api; // The api to which we 'forward' requests
+class UsernameRegistrationService implements IRegistrationService {
+  final IAuthApi _api; // The api to which we 'forward' requests
 
   // Constructor
   const UsernameRegistrationService(this._api);

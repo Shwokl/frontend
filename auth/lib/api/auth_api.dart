@@ -7,10 +7,10 @@ import 'package:http/http.dart' as http;
 // Local imports
 import '../data/models/credentials.dart';
 import '../data/models/token.dart';
-import 'generic_auth_api.dart';
+import 'auth_api_interface.dart';
 
 /// A basic authentication and registration API
-class AuthApi implements GenericAuthApi {
+class AuthApi implements IAuthApi {
   final http.Client _client; // http client used to make http requests
   final String _baseUrl; // the base endpoint for our api
   String signInRoute = '/auth/login';
@@ -28,10 +28,7 @@ class AuthApi implements GenericAuthApi {
   /// error otherwise.
   @override
   Future<Result<String>> singIn(Credentials credentials) {
-    return _sendPost(
-      url: "$_baseUrl/auth/login",
-      body: credentials.toMap(),
-    );
+    return _sendPost(url: "$_baseUrl/$signInRoute", body: credentials.toMap());
   }
 
   /// Send an http request to the [signUpRoute] endpoint of the API, with the
@@ -42,10 +39,7 @@ class AuthApi implements GenericAuthApi {
   /// error otherwise.
   @override
   Future<Result<String>> singUp(Credentials credentials) {
-    return _sendPost(
-      url: "$_baseUrl/auth/register",
-      body: credentials.toMap(),
-    );
+    return _sendPost(url: "$_baseUrl/$signUpRoute", body: credentials.toMap());
   }
 
   /// Send an http request to the [signOutRoute] endpoint of the API, with the

@@ -3,14 +3,14 @@ import 'package:async/async.dart' show Result;
 import 'package:flutter/foundation.dart' show required;
 
 // Local imports
-import '../../api/generic_auth_api.dart';
-import '../../services/generic_authentication_service.dart';
+import '../../api/auth_api_interface.dart';
+import '../../services/authentication_service_interface.dart';
 import '../models/credentials.dart';
 import '../models/token.dart';
 
 /// An authentication service that validate as `(username, password)` pair.
-class UsernameAuthenticationService implements GenericAuthSenticationervice {
-  final GenericAuthApi _api; // the api to which we 'forward' the calls
+class UsernameAuthenticationService implements IAuthSenticationervice {
+  final IAuthApi _api; // the api to which we 'forward' the calls
 
   // Constructor
   const UsernameAuthenticationService(this._api);

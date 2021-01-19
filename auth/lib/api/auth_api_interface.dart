@@ -10,7 +10,7 @@ import '../data/models/token.dart';
 /// Regardless of the platform for which the API is implemented, there are only
 /// 3 methods that we really care about: `sign in`, `sign out`, `sign up`.
 /// This interface is here to ensure that all APIs follow these guidelines.
-abstract class GenericAuthApi {
+abstract class IAuthApi {
   /// Attempt to validate the given [credentials] against a given service.
   ///
   /// If the given credentials are valid and the user has successfuly logged in,
@@ -30,5 +30,5 @@ abstract class GenericAuthApi {
   ///
   /// Returns `true` if the token was disposed of successfully, `false` if it was
   /// not, or a [Resul.error] if something went wrong.
-  Future<Result<bool>> signOut(Token token);
+  Future<Result<bool>> signOut(final Token token);
 }
