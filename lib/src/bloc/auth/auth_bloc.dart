@@ -3,7 +3,6 @@ import 'package:meta/meta.dart' show required;
 import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:http/http.dart' as http;
 import 'package:auth/auth.dart' as shwokl;
 
 // Local imports
@@ -39,17 +38,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     yield const AuthLoading();
 
     try {
-      final http.Client client = http.Client();
-      final shwokl.IAuthApi api = shwokl.AuthApi(client, '192.168.15.45:8181');
+      final shwokl.IAuthApi api = shwokl.AuthApi('http://192.168.15.51:8181');
 
       // If our event is of the [LoginEvent] type, we send a login request to
       // the api server, and yield either an [AuthSuccess] state, if the response
       // is 200, or and [AuthFailed] otherwise
       if (event is LoginEvent) {
-        final Result<String> loginResult = await api.singIn(shwokl.Credentials(
-          username: event.username,
-          password: event.password,
-        ));
+        final Result<String> loginResult = await api.singIn(
+          shwokl.Credentials(
+            username: event.username,
+            password: event.password,
+          ),
+          rememberMe: event.rememberMe,
+        );
 
         if (loginResult.isError) {
           yield AuthFailed(loginResult.asError.error.toString());
