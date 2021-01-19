@@ -1,9 +1,10 @@
 // Outside imports
-import 'dart:async';
+import 'package:meta/meta.dart' show required;
+import 'package:async/async.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
+import 'package:auth/auth.dart' as shwokl;
 
 // Local imports
 import '../../data/failure.dart';
@@ -38,23 +39,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     yield const AuthLoading();
 
     try {
-      // The http response from the API call we're about to make
-      Response response;
+      final http.Client client = http.Client();
+      final shwokl.IAuthApi api = shwokl.AuthApi(client, '192.168.15.45:8181');
 
       // If our event is of the [LoginEvent] type, we send a login request to
       // the api server, and yield either an [AuthSuccess] state, if the response
       // is 200, or and [AuthFailed] otherwise
       if (event is LoginEvent) {
-        response = await ShwoklAPI().login(
+        final Result<String> loginResult = await api.singIn(shwokl.Credentials(
           username: event.username,
           password: event.password,
-        );
+        ));
 
-        if (response.statusCode == 200) {
-          yield const AuthSuccess("Welcome");
+        if (loginResult.isError) {
+          yield AuthFailed(loginResult.asError.error.toString());
         } else {
-          print(response.body);
-          yield AuthFailed(response.body);
+          yield AuthSuccess(loginResult.asValue.value);
+          // todo cache the token
         }
       }
 
@@ -62,23 +63,34 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       // the api server, and yield either an [AuthSuccess] state, if the response
       // is 200, or and [AuthFailed] otherwise
       if (event is SignupEvent) {
-        response = await ShwoklAPI().register(
+        final Result<String> signupResult = await api.singUp(shwokl.Credentials(
           username: event.username,
           password: event.password,
-          name: event.name,
           email: event.email,
+          name: event.name,
+        ));
+
+        if (signupResult.isError) {
+          yield AuthFailed(signupResult.asError.error.toString());
+        } else {
+          yield AuthSuccess(signupResult.asValue.value);
+          // todo cache the token
+        }
+      }
+
+      if (event is LogoutEvent) {
+        final Result<bool> logoutResult = await api.signOut(
+          shwokl.Token(value: event.token),
         );
 
-        if (response.statusCode == 200) {
-          yield const AuthSuccess(
-              "User added successfully.\nYou can now log in");
+        if (logoutResult.isError) {
+          yield LogoutFailed(logoutResult.asError.error.toString());
         } else {
-          print(response.body);
-          yield AuthFailed(response.body);
+          yield const LogoutSuccess();
+          // todo remove token from cache
         }
       }
     } on Failure catch (f) {
-      // if something went wrong sending the api call
       print(f.message);
       yield AuthFailed(f.message);
     }

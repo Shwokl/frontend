@@ -74,3 +74,22 @@ class SignupEvent extends AuthEvent {
   @override
   List<Object> get props => [name, username, email, password];
 }
+
+/// Event meant to unauthenticate (log out) the currently logged in user.
+///
+/// Sends an API request that attempts to invalidate the given [token] from the
+/// server.
+///
+/// In response, if the token was disposed of, the server should respond with a
+/// 200 status code. This means the token was invalidated and we should redirect
+/// the user to the home page.
+/// Any other response means the token was not disposed of and the session is
+/// still alive.
+class LogoutEvent extends AuthEvent {
+  final String token;
+
+  const LogoutEvent(this.token);
+
+  @override
+  List<Object> get props => [token];
+}
