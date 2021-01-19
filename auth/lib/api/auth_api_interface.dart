@@ -1,4 +1,5 @@
 // External imports
+import 'package:meta/meta.dart' show required;
 import 'package:async/async.dart' show Result;
 
 // Local imports
@@ -16,7 +17,10 @@ abstract class IAuthApi {
   /// If the given credentials are valid and the user has successfuly logged in,
   /// an access [token] is returned.
   /// Otherwise, returns a [Resul.error]
-  Future<Result<String>> singIn(final Credentials credentials);
+  Future<Result<String>> singIn(
+    final Credentials credentials, {
+    @required final bool rememberMe,
+  });
 
   /// Attempt to create a new user with the given [credentials] on a given service.
   ///

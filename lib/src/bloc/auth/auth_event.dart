@@ -29,14 +29,16 @@ abstract class AuthEvent extends Equatable {
 class LoginEvent extends AuthEvent {
   final String username;
   final String password;
+  final bool rememberMe;
 
   const LoginEvent({
     @required this.username,
     @required this.password,
+    @required this.rememberMe,
   });
 
   @override
-  List<Object> get props => [username, password];
+  List<Object> get props => [username, password, rememberMe];
 }
 
 /// Event meant to register a new user to the database.

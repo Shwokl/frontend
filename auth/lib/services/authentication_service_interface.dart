@@ -1,5 +1,6 @@
 // External imports
 import 'package:async/async.dart' show Result;
+import 'package:meta/meta.dart' show required;
 
 // Local imports
 import '../data/models/credentials.dart';
@@ -24,7 +25,10 @@ abstract class IAuthSenticationervice implements ICredentialsService {
   /// If the given credentials are valid, the API server should return a [token]
   /// that you can use to further authorize actions.
   /// If the credentials are wrong, a [Response.error] is returned.
-  Future<Result<Token>> signIn(final Credentials credentials);
+  Future<Result<Token>> signIn(
+    final Credentials credentials, {
+    @required final bool remember,
+  });
 
   /// Invalidates the active [token].
   ///

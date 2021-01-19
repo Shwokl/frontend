@@ -1,5 +1,5 @@
 // External imports
-import 'dart:convert' show jsonDecode;
+import 'dart:convert' show jsonDecode, jsonEncode;
 import 'package:async/async.dart' show Result;
 import 'package:flutter/foundation.dart' show required;
 import 'package:http/http.dart' as http;
@@ -11,14 +11,13 @@ import 'auth_api_interface.dart';
 
 /// A basic authentication and registration API
 class AuthApi implements IAuthApi {
-  final http.Client _client; // http client used to make http requests
   final String _baseUrl; // the base endpoint for our api
-  String signInRoute = '/auth/login';
-  String signUpRoute = '/auth/register';
-  String signOutRoute = '/auth/logout';
+  String signInRoute = 'auth/login';
+  String signUpRoute = 'auth/register';
+  String signOutRoute = 'auth/logout';
 
   // Constructor
-  AuthApi(this._client, this._baseUrl);
+  AuthApi(this._baseUrl);
 
   /// Send an http request to the [signInRoute] endpoint of the API, with
   /// the [credentials] in the body.
@@ -27,8 +26,15 @@ class AuthApi implements IAuthApi {
   /// The server returns an access token if the credentials are correct, or an
   /// error otherwise.
   @override
-  Future<Result<String>> singIn(Credentials credentials) {
-    return _sendPost(url: "$_baseUrl/$signInRoute", body: credentials.toMap());
+  Future<Result<String>> singIn(
+    Credentials credentials, {
+    @required final bool rememberMe,
+  }) {
+    return _sendPost(url: "$_baseUrl/$signInRoute", body: {
+      'username': credentials.username,
+      'password': credentials.password,
+      'remember_me': rememberMe,
+    });
   }
 
   /// Send an http request to the [signUpRoute] endpoint of the API, with the
@@ -71,13 +77,11 @@ class AuthApi implements IAuthApi {
   /// sent.
   Future<Result<String>> _sendPost({
     @required final String url,
-    final Map<String, String> header = const {
-      "Content-type": "application/json"
-    },
+    final Map<String, String> header = const {},
     final Map<String, dynamic> body = const {},
   }) async {
     final http.Response response =
-        await _client.post(url, body: body, headers: header);
+        await http.post(url, body: jsonEncode(body), headers: header);
 
     final dynamic json = jsonDecode(response.body);
     if (response.statusCode != 200) {

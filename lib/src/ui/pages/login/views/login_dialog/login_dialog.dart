@@ -26,8 +26,8 @@ class _LoginDialogState extends State<LoginDialog> {
       context,
       username: _usernameController.text,
       password: _passwordController.text,
+      rememberMe: shouldRemember,
     );
-    // TODO: if shouldRemember, save access token to cookies
   }
 
   @override

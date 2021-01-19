@@ -19,12 +19,14 @@ void sendLoginEvent(
   BuildContext context, {
   @required String username,
   @required String password,
+  @required bool rememberMe,
 }) {
   if (username.isNotEmpty && password.isNotEmpty) {
     BlocProvider.of<AuthBloc>(context).add(
       LoginEvent(
         password: password,
         username: username,
+        rememberMe: rememberMe,
       ),
     );
   } else {

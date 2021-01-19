@@ -38,12 +38,16 @@ class UsernameAuthenticationService implements IAuthSenticationervice {
   /// that you can use to further authorize actions.
   /// If the credentials are wrong, a [Response.error] is returned.
   @override
-  Future<Result<Token>> signIn(final Credentials credentials) async {
+  Future<Result<Token>> signIn(
+    final Credentials credentials, {
+    @required final bool remember,
+  }) async {
     // Ensure proper credentials have been passed.
     assert(credentials != null);
 
     // Send the actual api request.
-    final Result<String> result = await _api.singIn(credentials);
+    final Result<String> result =
+        await _api.singIn(credentials, rememberMe: remember);
 
     // Parse the response
     if (result.isError) {
