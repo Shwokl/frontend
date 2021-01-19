@@ -42,13 +42,17 @@ class PillButton extends StatelessWidget {
       ),
     ));
 
-    return RaisedButton(
-      colorBrightness: Brightness.light,
-      padding: padding,
-      color: fillColor ?? Theme.of(context).accentColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(60.0),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: padding,
+        primary: fillColor ?? Theme.of(context).accentColor,
+        shadowColor: Colors.black,
+        visualDensity: VisualDensity.standard,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(60.0),
+        ),
       ),
+      // colorBrightness: Brightness.light,
       onPressed: onPressed,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
