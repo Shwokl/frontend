@@ -11,8 +11,6 @@ class WebView extends StatefulWidget {
 }
 
 class _WebViewState extends State<WebView> {
-  // bool _isRemember = false;
-
   @override
   Widget build(BuildContext context) {
     return BackgroundScaffold(
