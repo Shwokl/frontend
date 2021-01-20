@@ -28,19 +28,6 @@ class CalendarCard extends StatelessWidget {
     return map;
   }
 
-  Widget _customDayBuilder(BuildContext context, DateTime date) {
-    return Text(
-      date.day.toString(),
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        color: (Theme.of(context).brightness == Brightness.dark)
-            ? Colors.white54
-            : Colors.black87,
-        fontWeight: FontWeight.w400,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -61,7 +48,6 @@ class CalendarCard extends StatelessWidget {
           selectedColor: theme.primaryColorDark,
           eventDoneColor: theme.accentColor,
           todayColor: Theme.of(context).primaryColorDark,
-          dayBuilder: _customDayBuilder,
           dayOfWeekStyle: TextStyle(
             color: (theme.brightness == Brightness.dark)
                 ? Colors.white30
