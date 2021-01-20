@@ -37,9 +37,9 @@ class _LoginDialogState extends State<LoginDialog> {
     } else {
       showWarningSnackbar(
         context,
-        title: "Please fill all required fields!",
+        title: 'Please fill all required fields!',
         message:
-            "We can't log you in without a username and password... can we?",
+            'We cannot log you in without a username and password... can we?',
       );
     }
   }
