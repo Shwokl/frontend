@@ -1,54 +1,33 @@
 import 'package:flutter/widgets.dart';
-
-void _navigateTo(BuildContext context, String route, Object args) {
-  Future.delayed(Duration.zero).then(
-    (value) => Navigator.pushNamed(context, route, arguments: args),
-  );
-}
-
-void _replaceAllWith(BuildContext context, String route, Object args) {
-  Future.delayed(Duration.zero).then(
-    (value) {
-      Navigator.popUntil(context, ModalRoute.withName('/'));
-      _navigateTo(context, route, args);
-    },
-  );
-}
-
-void _replaceWith(
-  BuildContext context,
-  String route,
-  Object args,
-) {
-  Future.delayed(Duration.zero).then(
-    (value) => Navigator.pushReplacementNamed(context, route, arguments: args),
-  );
-}
+import 'package:url_launcher/url_launcher.dart';
 
 void navigateToLogin(BuildContext context, {Object args = const {}}) {
-  _navigateTo(context, "/login", args);
+  Navigator.pushNamed(context, '/login', arguments: args);
 }
 
 void navigateToSignup(BuildContext context, {Object args = const {}}) {
-  _navigateTo(context, "/register", args);
+  Navigator.pushNamed(context, '/signup', arguments: args);
 }
 
 void navigateToSettings(BuildContext context, {Object args = const {}}) {
-  _navigateTo(context, "/settings", args);
+  Navigator.pushNamed(context, '/settings', arguments: args);
 }
 
-void navigateToDashboard(BuildContext context, {Object args = const {}}) {
-  _navigateTo(context, "/dashboard", args);
+void navigateToHome(BuildContext context, {Object args = const {}}) {
+  Navigator.pushNamed(context, '/home', arguments: args);
 }
 
-void navigateToWorkouts(BuildContext context, {Object args = const {}}) {
-  _navigateTo(context, "/workouts", args);
+void resetToHome(BuildContext context, {Object args = const {}}) {
+  Navigator.pushReplacementNamed(context, '/home');
 }
 
-void navigateToHistory(BuildContext context, {Object args = const {}}) {
-  _navigateTo(context, "/history", args);
-}
-
-void resetToDashboard(BuildContext context, {Object args = const {}}) {
-  _replaceAllWith(context, "/dashboard", args);
+Future<void> navigateToURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(
+      url,
+      forceWebView: false,
+    );
+  } else {
+    throw 'Could not launch $url';
+  }
 }
