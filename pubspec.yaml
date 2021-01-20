@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^6.1.0
   flutter_clean_calendar: ^1.0.2+1
-  http: ^0.12.2 # used for sending api calls
+  http: ^0.12.1 # used for sending api calls
   material_design_icons_flutter: ^4.0.5345 # used for extra icons
   url_launcher: ^5.1.4
   url_launcher_web: '>=0.1.0 <2.0.0'
