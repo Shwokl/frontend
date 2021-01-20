@@ -16,8 +16,7 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double minWidth = 400;
-    const double minHeight = 100;
+    const double minWidth = 425;
     const double referenceWidth = 500;
     const double referenceHeight = 150;
 
@@ -29,7 +28,7 @@ class UserCard extends StatelessWidget {
           horizontal: max(24 * scale, 8),
         ),
         width: max(minWidth, referenceWidth * scale),
-        height: max(minHeight, referenceHeight * scale),
+        height: referenceHeight,
         child: Row(
           children: [
             UserAvatar(user.avatar),
