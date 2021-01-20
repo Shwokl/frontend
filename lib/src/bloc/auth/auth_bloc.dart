@@ -92,7 +92,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       }
     } on Failure catch (f) {
-      print(f.message);
       yield AuthFailed(f.message);
     }
   }

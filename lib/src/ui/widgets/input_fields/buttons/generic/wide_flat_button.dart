@@ -25,9 +25,6 @@ class WideFlatButton extends StatelessWidget {
     const double minFontSize = 18;
     const Size minSize = Size(32, 8);
     final double fontSize = 26 * scale;
-    print('FontSize: $fontSize');
-    print("mid scale: $scale <-----------");
-    print('Actual font size: ${max(minFontSize, fontSize)}');
 
     return TextButton(
       style: TextButton.styleFrom(
