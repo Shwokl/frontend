@@ -1,4 +1,5 @@
 // External imports
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 // Local imports
@@ -7,16 +8,28 @@ import 'components/all.dart';
 
 class UserCard extends StatelessWidget {
   final User user;
-  const UserCard(this.user);
+  final double scale;
+  const UserCard(
+    this.user, {
+    this.scale = 1,
+  });
 
   @override
   Widget build(BuildContext context) {
+    const double minWidth = 400;
+    const double minHeight = 100;
+    const double referenceWidth = 500;
+    const double referenceHeight = 150;
+
     return Card(
       color: Theme.of(context).primaryColor,
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-        width: 500,
-        height: 150,
+        padding: EdgeInsets.symmetric(
+          vertical: max(16 * scale, 8),
+          horizontal: max(24 * scale, 8),
+        ),
+        width: max(minWidth, referenceWidth * scale),
+        height: max(minHeight, referenceHeight * scale),
         child: Row(
           children: [
             UserAvatar(user.avatar),

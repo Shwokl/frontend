@@ -1,54 +1,63 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_calendar/flutter_clean_calendar.dart';
 import 'package:frontend/src/data/shwokl/workout_logs/workout_log.dart';
 
 class CalendarCard extends StatelessWidget {
   final List<WorkoutLog> logs;
-  const CalendarCard(this.logs);
+  final double scale;
+  const CalendarCard(this.logs, {this.scale = 1});
 
-  Map<DateTime, List<Map<String, dynamic>>> _listToMap() {
+  Map<DateTime, List<Map<String, dynamic>>> _mapBuilder() {
     final Map<DateTime, List<Map<String, dynamic>>> map = {};
 
     // ignore: avoid_function_literals_in_foreach_calls
     logs.forEach((element) {
       map.putIfAbsent(
-          element.date,
-          () => [
-                {'name': element.name, 'isDone': true}
-              ]);
+        element.date,
+        () => [
+          {
+            'name': element.name,
+            'isDone': true,
+          }
+        ],
+      );
     });
 
     return map;
   }
 
+  Widget _customDayBuilder(BuildContext context, DateTime date) {
+    return Text(
+      date.day.toString(),
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: (Theme.of(context).brightness == Brightness.dark)
+            ? Colors.white54
+            : Colors.black87,
+        fontWeight: FontWeight.w400,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-
-    Widget _customDayBuilder(BuildContext context, DateTime date) {
-      return Text(
-        date.day.toString(),
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: (theme.brightness == Brightness.dark)
-              ? Colors.white54
-              : Colors.black87,
-          fontWeight: FontWeight.w400,
-        ),
-      );
-    }
+    const double minWidth = 400;
+    const double referenceWidth = 500;
 
     return Card(
       color: Theme.of(context).primaryColor,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-        width: 500,
+        width: max(minWidth, referenceWidth * scale),
         child: Calendar(
           weekDays: const ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
           startOnMonday: true,
           isExpandable: true,
           isExpanded: true,
-          events: _listToMap(),
+          events: _mapBuilder(),
           selectedColor: theme.primaryColorDark,
           eventDoneColor: theme.accentColor,
           todayColor: Theme.of(context).primaryColorDark,
