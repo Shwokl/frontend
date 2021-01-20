@@ -1,15 +1,17 @@
 // External imports
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Local imports
+import '../../../../../../bloc/auth/auth_bloc.dart';
 import '../../../../../utils/navigation.dart';
 import '../../../../../widgets/dialogs/generic_dialog.dart';
-import '../../../../../widgets/input_fields/buttons/pill_button.dart';
-import '../../../../../widgets/input_fields/buttons/wide_flat_button.dart';
+import '../../../../../widgets/input_fields/buttons/generic/pill_button.dart';
+import '../../../../../widgets/input_fields/buttons/generic/wide_flat_button.dart';
 import '../../../../../widgets/input_fields/custom_checkbox.dart';
 import '../../../../../widgets/input_fields/text_input/name_input.dart';
 import '../../../../../widgets/input_fields/text_input/password_input.dart';
-import 'functions.dart';
+import '../../../../../widgets/snackbar.dart';
 
 class LoginDialog extends StatefulWidget {
   const LoginDialog();
@@ -24,26 +26,37 @@ class _LoginDialogState extends State<LoginDialog> {
   bool shouldRemember = false;
 
   void onLoginPress() {
-    sendLoginEvent(
-      context,
-      username: _usernameController.text,
-      password: _passwordController.text,
-      rememberMe: shouldRemember,
-    );
+    final String username = _usernameController.text;
+    final String password = _passwordController.text;
+
+    if (username.isNotEmpty && password.isNotEmpty) {
+      BlocProvider.of<AuthBloc>(context).add(
+        LoginEvent(
+            password: password, username: username, rememberMe: shouldRemember),
+      );
+    } else {
+      showWarningSnackbar(
+        context,
+        title: "Please fill all required fields!",
+        message:
+            "We can't log you in without a username and password... can we?",
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return GenericDialog(
-      title: "Welcome back",
+      title: 'Welcome back',
       width: 475,
+      height: 515,
       children: [
         UserNameInputFiled(controller: _usernameController, width: 375),
         const SizedBox(height: 32),
         PasswordInputField(controller: _passwordController, width: 375),
         const SizedBox(height: 8),
         TextCheckbox(
-          text: "Remember me",
+          text: 'Remember me',
           width: 200,
           isChecked: shouldRemember,
           onCheckedChanged: () {
@@ -51,12 +64,13 @@ class _LoginDialogState extends State<LoginDialog> {
           },
         ),
         const SizedBox(height: 16),
-        PillButton(text: "Log in", onPressed: onLoginPress),
+        PillButton(text: 'Log in', onPressed: onLoginPress),
         const SizedBox(height: 16),
-        const StealthyBottomText("Don't have an account?"),
+        const StealthyBottomText('Don`t have an account?'),
         WideFlatButton(
-          text: "Sign up",
+          text: 'Sign up',
           onPressed: () => navigateToSignup(context),
+          scale: 1,
         ),
       ],
     );

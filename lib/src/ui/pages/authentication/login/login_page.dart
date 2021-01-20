@@ -1,6 +1,7 @@
 // External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend/src/ui/utils/navigation.dart';
 
 // Local imports
 import '../../../../bloc/auth/auth_bloc.dart';
@@ -13,15 +14,14 @@ class LoginPage extends StatelessWidget {
   const LoginPage();
 
   Widget _builder(BuildContext context, AuthState state) {
-    if (state is AuthLoading) {
-      return const LoadingScaffold();
-    } else if (state is AuthSuccess) {
-      Future.delayed(const Duration(seconds: 2)).then(
-        (value) => Navigator.pushReplacementNamed(context, "/home"),
-      );
-      return const BackgroundScaffold();
-    } else {
-      return WebView();
+    switch (state.runtimeType) {
+      case AuthLoading:
+        return const LoadingScaffold();
+      case AuthSuccess:
+        resetToHome(context);
+        return const BackgroundScaffold();
+      default:
+        return WebView();
     }
   }
 
