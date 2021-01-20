@@ -42,23 +42,29 @@ class _LandingPageState extends State<LandingPage> {
           if (width > 850) const ThemeButton(),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Row(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SubHeadline('Self hosted workout log.', wScale),
-                Headline('Your workouts.\nYour progress.\nYOUR data.', wScale),
-                SizedBox(height: 32.0 * wScale),
-                CallToAction('Take me to login', hScale, wScale),
-              ],
-            ),
-            const Expanded(child: SizedBox()),
-            if (MediaQuery.of(context).size.width > 1500)
-              ImageContainer('lib/src/assets/success.png', wScale),
-          ],
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        alignment: Alignment.centerLeft,
+        child: SingleChildScrollView(
+          child: Row(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SubHeadline('Self hosted workout log.', wScale),
+                  Headline(
+                      'Your workouts.\nYour progress.\nYOUR data.', wScale),
+                  SizedBox(height: 32.0 * wScale),
+                  CallToAction('Take me to login', hScale, wScale),
+                ],
+              ),
+              const Expanded(child: SizedBox()),
+              if (MediaQuery.of(context).size.width > 1500)
+                ImageContainer('lib/src/assets/success.png', wScale),
+            ],
+          ),
         ),
       ),
     );

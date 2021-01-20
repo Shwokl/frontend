@@ -42,12 +42,7 @@ class BackgroundScaffold extends StatelessWidget {
           backgroundColor: Colors.transparent,
           appBar: fakeAppBar,
           body: SafeArea(
-            child: Container(
-              alignment: Alignment.centerLeft,
-              width: double.infinity,
-              height: double.infinity,
-              child: body,
-            ),
+            child: body,
           ),
         ),
       ),
