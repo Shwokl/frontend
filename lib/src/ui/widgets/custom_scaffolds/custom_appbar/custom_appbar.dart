@@ -1,10 +1,12 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/theme_button.dart';
-import 'package:frontend/src/ui/widgets/vertical_separator.dart';
 
+// Local imports
+import '../../../../ui/widgets/input_fields/buttons/custom/theme_button.dart';
+import '../../../../ui/widgets/vertical_separator.dart';
 import 'appbar_title.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends PreferredSize {
   final Widget logo;
   final List<Widget> trailingIcons;
   final List<Widget> navItems;
@@ -15,11 +17,8 @@ class CustomAppBar extends StatelessWidget {
     this.navItems = const [],
   });
 
-  void navigateTo(BuildContext context, String path) {
-    Future.delayed(Duration.zero).then(
-      (value) => Navigator.pushNamed(context, path),
-    );
-  }
+  @override
+  Size get preferredSize => const Size.fromHeight(64);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,10 @@ class CustomAppBar extends StatelessWidget {
 
     return SizedBox(
       width: double.infinity,
-      child: Row(children: elements),
+      child: Row(
+        children: elements,
+        mainAxisAlignment: MainAxisAlignment.center,
+      ),
     );
   }
 }

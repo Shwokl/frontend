@@ -1,9 +1,12 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/utils/navigation.dart';
-import 'package:frontend/src/ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/nav_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/settings_button.dart';
-import 'package:frontend/src/ui/widgets/input_fields/buttons/theme_button.dart';
+
+// Local imports
+import '../../../../ui/utils/navigation.dart';
+import '../../../../ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
+import '../../../../ui/widgets/input_fields/buttons/custom/settings_button.dart';
+import '../../../../ui/widgets/input_fields/buttons/custom/theme_button.dart';
+import '../../../../ui/widgets/input_fields/buttons/generic/nav_button.dart';
 
 class WebNavBar extends StatelessWidget {
   @override
@@ -11,8 +14,8 @@ class WebNavBar extends StatelessWidget {
     return CustomAppBar(
       navItems: [
         NavButton(
-          text: 'Dashboard',
-          onPressed: () => navigateToDashboard(context),
+          text: 'Home',
+          onPressed: () => navigateToHome(context),
         )
       ],
       trailingIcons: const [ThemeButton(), SettingsButton()],

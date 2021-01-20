@@ -1,37 +1,56 @@
+// External imports
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/widgets/custom_scaffolds/background_scaffold/background_image.dart';
+
+// Local imports
+import '../../../../ui/widgets/custom_scaffolds/background_scaffold/background_image.dart';
+import '../../../../ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart';
 
 class BackgroundScaffold extends StatelessWidget {
   final Widget body;
-  final Widget fakeAppBar;
+  final CustomAppBar fakeAppBar;
+  // ignore: avoid_field_initializers_in_const_classes
+  final double _ogWidth = 3072;
+  // ignore: avoid_field_initializers_in_const_classes
+  final double _ogHeight = 1580;
 
   const BackgroundScaffold({
     this.body = const SizedBox(width: 0, height: 0),
-    this.fakeAppBar = const SizedBox(width: 0, height: 0),
+    this.fakeAppBar = const CustomAppBar(),
   });
 
   @override
   Widget build(BuildContext context) {
-    // Select a different pattern based on theme brightness
-    String patternPath = "lib/src/assets/patterns/memphis-mini/";
-    if (Theme.of(context).brightness == Brightness.dark) {
-      patternPath += "dark.png";
-    } else {
-      patternPath += "light.png";
-    }
+    final ThemeData theme = Theme.of(context);
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    final double wScale = width / _ogWidth;
+    final double hScale = height / _ogHeight;
+    print(//TODO DELETEME
+        'Width: $width | Height: $height | WScale: $wScale | HScale: $hScale');
 
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            BackgroundImage(patternPath),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(225, 50, 225, 50),
-              child: Column(children: [fakeAppBar, body]),
+    // Select a different pattern based on theme brightness
+    String patternPath = 'lib/src/assets/patterns/memphis-mini/';
+    patternPath +=
+        (theme.brightness == Brightness.dark) ? 'dark.png' : 'light.png';
+
+    return Stack(children: [
+      BackgroundImage(patternPath),
+      Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: 225 * wScale, vertical: 32 * hScale),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: fakeAppBar,
+          body: SafeArea(
+            child: Container(
+              alignment: Alignment.centerLeft,
+              width: double.infinity,
+              height: double.infinity,
+              child: body,
             ),
-          ],
+          ),
         ),
       ),
-    );
+    ]);
   }
 }
