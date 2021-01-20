@@ -7,7 +7,7 @@ import '../../../../ui/widgets/custom_scaffolds/custom_appbar/custom_appbar.dart
 
 class BackgroundScaffold extends StatelessWidget {
   final Widget body;
-  final CustomAppBar fakeAppBar;
+  final CustomAppBar appBar;
   // ignore: avoid_field_initializers_in_const_classes
   final double _ogWidth = 3072;
   // ignore: avoid_field_initializers_in_const_classes
@@ -15,7 +15,7 @@ class BackgroundScaffold extends StatelessWidget {
 
   const BackgroundScaffold({
     this.body = const SizedBox(width: 0, height: 0),
-    this.fakeAppBar = const CustomAppBar(),
+    this.appBar = const CustomAppBar(),
   });
 
   @override
@@ -40,7 +40,7 @@ class BackgroundScaffold extends StatelessWidget {
             horizontal: 225 * wScale, vertical: 32 * hScale),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: fakeAppBar,
+          appBar: appBar,
           body: SafeArea(
             child: body,
           ),

@@ -29,7 +29,7 @@ class _LandingPageState extends State<LandingPage> {
     final double hScale = height / _ogHeight;
 
     return BackgroundScaffold(
-      fakeAppBar: CustomAppBar(
+      appBar: CustomAppBar(
         logo: AppbarTitle(scale: wScale),
         navItems: [
           LinkButton(
