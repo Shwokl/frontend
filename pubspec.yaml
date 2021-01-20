@@ -9,11 +9,13 @@ environment:
 dependencies:
   auth:
     path: ./auth
+  charts_flutter: ^0.9.0
   equatable: ^1.2.5 # used for the BLoC pattern
   flushbar: ^1.10.4 # used for custom snackbars
   flutter:
     sdk: flutter
   flutter_bloc: ^6.1.0
+  flutter_clean_calendar: ^1.0.2+1
   http: ^0.12.2 # used for sending api calls
   material_design_icons_flutter: ^4.0.5345 # used for extra icons
   url_launcher: ^5.1.4
