@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:frontend/src/data/shwokl/workout_plans/workout_plan.dart';
+import 'package:frontend/src/ui/widgets/cards/graph_card.dart';
 import 'package:frontend/src/ui/widgets/cards/workout_plan_card/workout_plan_card.dart';
 
 // Local imports
@@ -22,8 +23,8 @@ class WebView extends StatelessWidget {
   final List<WorkoutLog> logs;
   final List<WorkoutPlan> plans;
 
-  final double _ogWidth = 3072;
-  final double _ogHeight = 1580;
+  final double _ogWidth = 3840;
+  final double _ogHeight = 2000;
 
   const WebView({
     @required this.user,
@@ -61,21 +62,36 @@ class WebView extends StatelessWidget {
             isAccent: true,
           ),
         ],
-        trailingIcons: const [ThemeButton(), SettingsButton()],
+        trailingIcons: [
+          ThemeButton(scale: wScale),
+          SettingsButton(scale: wScale)
+        ],
       ),
       body: SingleChildScrollView(
         child: TwoPaneLayout(
           showRight: width > 1500,
           left: [
             Container(
-              color: Colors.pink,
+              margin: const EdgeInsets.only(bottom: 16),
+              width: double.infinity,
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                'Available workout plans',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1.5,
+                ),
+              ),
+            ),
+            SizedBox(
               width: double.infinity,
               child: Wrap(
                 alignment: WrapAlignment.spaceAround,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 runAlignment: WrapAlignment.end,
                 spacing: 8.0,
-                runSpacing: 4.0,
+                runSpacing: 8.0,
                 children: _renderPlans(),
               ),
             ),
@@ -85,6 +101,23 @@ class WebView extends StatelessWidget {
             const SizedBox(height: 8.0),
             CalendarCard(logs, scale: wScale),
             const SizedBox(height: 8.0),
+            ChartCard(
+              'Weight loss graph',
+              const [
+                DataPoints(1, 80),
+                DataPoints(2, 75),
+                DataPoints(3, 77),
+                DataPoints(4, 70),
+                DataPoints(5, 74),
+                DataPoints(6, 68),
+                DataPoints(7, 71),
+                DataPoints(8, 67),
+                DataPoints(9, 69),
+                DataPoints(10, 64),
+              ],
+              scale: wScale,
+              color: Theme.of(context).accentColor,
+            ),
           ],
         ),
       ),
@@ -108,6 +141,7 @@ class TwoPaneLayout extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(child: Column(children: left)),
+        if (showRight) const SizedBox(width: 16),
         if (showRight) Column(children: right),
       ],
     );
