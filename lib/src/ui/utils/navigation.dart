@@ -18,7 +18,7 @@ void navigateToHome(BuildContext context, {Object args = const {}}) {
 }
 
 void resetToHome(BuildContext context, {Object args = const {}}) {
-  Navigator.pushReplacementNamed(context, '/home');
+  Navigator.pushReplacementNamed(context, '/home', arguments: args);
 }
 
 Future<void> navigateToURL(String url) async {
