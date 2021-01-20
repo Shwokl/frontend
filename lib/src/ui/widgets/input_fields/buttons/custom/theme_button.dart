@@ -1,9 +1,11 @@
+// External imports
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:frontend/src/bloc/theme/theme_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'circle_button.dart';
+// Local imports
+import '../../../../../bloc/theme/theme_bloc.dart';
+import '../generic/circle_button.dart';
 
 class ThemeButton extends StatelessWidget {
   const ThemeButton();
