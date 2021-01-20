@@ -18,7 +18,6 @@ class LoginPage extends StatelessWidget {
       case AuthLoading:
         return const LoadingScaffold();
       case AuthSuccess:
-        resetToHome(context);
         return const BackgroundScaffold();
       default:
         return WebView();
@@ -27,11 +26,7 @@ class LoginPage extends StatelessWidget {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      showSuccessSnackbar(
-        context,
-        title: "Welcome!",
-        message: "Authentication successful!",
-      );
+      resetToHome(context, args: true);
     } else if (state is AuthFailed) {
       showErrorSnackbar(
         context,
