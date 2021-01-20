@@ -1,0 +1,3 @@
+[submodule "lib/src/data/shwokl"]
+	path = lib/src/data/shwokl
+	url = https://github.com/Shwokl/data_models
