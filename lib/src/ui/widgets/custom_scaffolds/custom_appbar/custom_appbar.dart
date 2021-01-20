@@ -18,7 +18,7 @@ class CustomAppBar extends PreferredSize {
   });
 
   @override
-  Size get preferredSize => const Size.fromHeight(64);
+  Size get preferredSize => const Size.fromHeight(128);
 
   @override
   Widget build(BuildContext context) {
