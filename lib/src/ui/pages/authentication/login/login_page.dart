@@ -26,7 +26,12 @@ class LoginPage extends StatelessWidget {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      resetToHome(context, args: true);
+      resetToHome(context);
+      showSuccessSnackbar(
+        context,
+        title: "Welcome!",
+        message: "Authentication successful!",
+      );
     } else if (state is AuthFailed) {
       showErrorSnackbar(
         context,
