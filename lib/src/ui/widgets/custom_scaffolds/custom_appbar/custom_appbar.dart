@@ -44,8 +44,8 @@ class CustomAppBar extends PreferredSize {
     return SizedBox(
       width: double.infinity,
       child: Row(
-        children: elements,
         mainAxisAlignment: MainAxisAlignment.center,
+        children: elements,
       ),
     );
   }
