@@ -32,7 +32,7 @@ class CalendarCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     const double minWidth = 425;
-    const double referenceWidth = 500;
+    const double referenceWidth = 650;
 
     return Card(
       color: Theme.of(context).primaryColor,

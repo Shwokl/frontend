@@ -10,7 +10,7 @@ class ImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double minSize = 400;
-    final double size = 1500 * scale;
+    final double size = 1800 * scale;
 
     return SizedBox(
       width: max(size, minSize),

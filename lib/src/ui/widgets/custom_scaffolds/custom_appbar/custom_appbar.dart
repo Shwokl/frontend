@@ -39,7 +39,11 @@ class CustomAppBar extends PreferredSize {
     elements.add(const Expanded(child: SizedBox()));
 
     // Add all trailing icons to the elements list
-    elements.addAll(trailingIcons);
+    trailingIcons.forEach((e) {
+      elements.add(e);
+      elements.add(const SizedBox(width: 8));
+    });
+    elements.removeLast();
 
     return SizedBox(
       width: double.infinity,

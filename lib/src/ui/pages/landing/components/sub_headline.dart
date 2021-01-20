@@ -10,8 +10,8 @@ class SubHeadline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    const double minSize = 18;
-    final double size = 24 * scale;
+    const double minSize = 24;
+    final double size = 36 * scale;
 
     return Text(
       text,

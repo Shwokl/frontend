@@ -8,11 +8,13 @@ import '../../../../../bloc/theme/theme_bloc.dart';
 import '../generic/circle_button.dart';
 
 class ThemeButton extends StatelessWidget {
-  const ThemeButton();
+  final double scale;
+  const ThemeButton({this.scale = 1});
 
   @override
   Widget build(BuildContext context) {
     return CircleButton(
+      scale: scale,
       onPressed: () {
         BlocProvider.of<ThemeBloc>(context).add(const ThemeSwitchEvent());
       },

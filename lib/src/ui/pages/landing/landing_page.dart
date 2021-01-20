@@ -18,8 +18,8 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  final double _ogWidth = 3072;
-  final double _ogHeight = 1580;
+  final double _ogWidth = 3840;
+  final double _ogHeight = 2000;
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +38,9 @@ class _LandingPageState extends State<LandingPage> {
           LinkButton('Contact', 'https://github.com/mikeanth-dev', wScale),
         ],
         trailingIcons: [
-          if (width > 1250) const GithubButton('https://github.com/Shwokl'),
-          if (width > 850) const ThemeButton(),
+          if (width > 1250)
+            GithubButton('https://github.com/Shwokl', scale: wScale),
+          if (width > 850) ThemeButton(scale: wScale),
         ],
       ),
       body: Container(
@@ -61,7 +62,7 @@ class _LandingPageState extends State<LandingPage> {
                 ],
               ),
               const Expanded(child: SizedBox()),
-              if (MediaQuery.of(context).size.width > 1500)
+              if (MediaQuery.of(context).size.width > 1700)
                 ImageContainer('lib/src/assets/success.png', wScale),
             ],
           ),

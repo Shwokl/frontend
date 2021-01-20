@@ -17,7 +17,7 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double minWidth = 425;
-    const double referenceWidth = 500;
+    const double referenceWidth = 650;
     const double referenceHeight = 150;
 
     return Card(

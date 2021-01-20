@@ -46,31 +46,35 @@ class _LoginDialogState extends State<LoginDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return GenericDialog(
-      title: 'Welcome back',
-      width: 475,
-      height: 515,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        UserNameInputFiled(controller: _usernameController, width: 375),
-        const SizedBox(height: 32),
-        PasswordInputField(controller: _passwordController, width: 375),
-        const SizedBox(height: 8),
-        TextCheckbox(
-          text: 'Remember me',
-          width: 200,
-          isChecked: shouldRemember,
-          onCheckedChanged: () {
-            shouldRemember = !shouldRemember;
-          },
-        ),
-        const SizedBox(height: 16),
-        PillButton(text: 'Log in', onPressed: onLoginPress),
-        const SizedBox(height: 16),
-        const StealthyBottomText('Don`t have an account?'),
-        WideFlatButton(
-          text: 'Sign up',
-          onPressed: () => navigateToSignup(context),
-          scale: 1,
+        GenericDialog(
+          title: 'Welcome back',
+          width: 475,
+          children: [
+            UserNameInputFiled(controller: _usernameController, width: 375),
+            const SizedBox(height: 32),
+            PasswordInputField(controller: _passwordController, width: 375),
+            const SizedBox(height: 8),
+            TextCheckbox(
+              text: 'Remember me',
+              width: 200,
+              isChecked: shouldRemember,
+              onCheckedChanged: () {
+                shouldRemember = !shouldRemember;
+              },
+            ),
+            const SizedBox(height: 16),
+            PillButton(text: 'Log in', onPressed: onLoginPress),
+            const SizedBox(height: 16),
+            const StealthyBottomText('Don`t have an account?'),
+            WideFlatButton(
+              text: 'Sign up',
+              onPressed: () => navigateToSignup(context),
+              scale: 1,
+            ),
+          ],
         ),
       ],
     );

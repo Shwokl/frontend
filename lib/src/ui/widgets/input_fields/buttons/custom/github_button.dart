@@ -8,44 +8,27 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 // Local imports
 import '../generic/pill_button.dart';
 
-class GithubButton extends StatefulWidget {
+class GithubButton extends StatelessWidget {
   final String url;
   final double scale;
   const GithubButton(this.url, {this.scale = 1});
 
   @override
-  // ignore: no_logic_in_create_state
-  _GithubButtonState createState() => _GithubButtonState(url, scale);
-}
-
-class _GithubButtonState extends State<GithubButton> {
-  final String url;
-  final double scale;
-  _GithubButtonState(this.url, this.scale);
-
-  @override
   Widget build(BuildContext context) {
-    const double minIconSize = 32;
-    const Size minSize = Size(32, 12);
-    final double iconSize = 32 * scale;
-    final Size size = Size(64 * scale, 16 * scale);
+    final double iconSize = 36 * scale;
+    final double vPadding = 8 * scale;
+    final double hPadding = 48 * scale;
 
     final ThemeData theme = Theme.of(context);
     return PillButton(
       text: 'View on GitHub',
       leadingIcon: MdiIcons.github,
-      iconSize: max(minIconSize, iconSize),
+      iconSize: iconSize,
       textColor: theme.accentColor,
       fillColor: theme.primaryColor,
-      padding: EdgeInsets.symmetric(
-        vertical: max(minSize.height, size.height),
-        horizontal: max(minSize.width, size.width),
-      ),
-      onPressed: () {
-        setState(() {
-          navigateToURL(url);
-        });
-      },
+      padding: EdgeInsets.symmetric(vertical: vPadding, horizontal: hPadding),
+      onPressed: () => navigateToURL(url),
+      scale: scale,
     );
   }
 }

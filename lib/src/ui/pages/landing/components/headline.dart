@@ -9,7 +9,7 @@ class Headline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double minSize = 64;
+    const double minSize = 90;
     final double size = 120 * scale;
     return Text(
       text,
