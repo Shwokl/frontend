@@ -35,7 +35,7 @@ class ShwoklApp extends StatelessWidget {
       initialRoute: '/',
       debugShowCheckedModeBanner: false, // TODO REMOVE ME
       routes: {
-        '/': (context) => LandingPage(),
+        '/': (context) => const LandingPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/settings': (context) => const SettingsPage(),
