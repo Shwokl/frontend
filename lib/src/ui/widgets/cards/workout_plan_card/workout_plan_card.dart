@@ -15,8 +15,8 @@ class WorkoutPlanCard extends StatelessWidget {
   Widget build(BuildContext context) {
     const double minWidth = 300;
     const double minHeight = 180;
-    const double referenceWidth = 500;
-    const double referenceHeight = 300;
+    const double referenceWidth = 600;
+    const double referenceHeight = 360;
 
     return Card(
       elevation: 8,
@@ -27,7 +27,10 @@ class WorkoutPlanCard extends StatelessWidget {
         height: max(minHeight, referenceHeight * scale),
         child: Stack(
           children: [
-            CardBackground(plan.image, height: 350),
+            CardBackground(
+              plan.image,
+              height: max(minHeight, referenceHeight * scale),
+            ),
             CardTitle(plan.name),
             CardCreator(plan.creator.name),
             InkWell(
