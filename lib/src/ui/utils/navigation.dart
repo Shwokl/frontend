@@ -6,7 +6,7 @@ void navigateToLogin(BuildContext context, {Object args = const {}}) {
 }
 
 void navigateToSignup(BuildContext context, {Object args = const {}}) {
-  Navigator.pushNamed(context, '/signup', arguments: args);
+  Navigator.pushNamed(context, '/register', arguments: args);
 }
 
 void navigateToSettings(BuildContext context, {Object args = const {}}) {
