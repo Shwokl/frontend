@@ -1,11 +1,8 @@
-// External imports
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:frontend/src/ui/utils/navigation.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 // Local imports
+import '../../../../utils/navigation.dart';
 import '../generic/pill_button.dart';
 
 class GithubButton extends StatelessWidget {
